@@ -1,8 +1,10 @@
-# Termux-Dev-Station
-Convierte tu teléfono en un entorno de desarrollo completo. Aprende a instalar un escritorio gráfico estable en Termux con soporte para programación web y creación de videojuegos, ideal para proyectar a un monitor externo.
+# 📱 Termux-Dev-Station
+La guía definitiva para convertir Termux en un entorno de desarrollo gráfico. KDE Plasma, VS Code, Godot Engine y PulseAudio en tu Android. Paso a paso, estable y sin scripts ocultos. ¡Perfecto para DeX o monitor externo!
 
-
-# 📱 Termux Dev Station
+```markdown
+> 🚀 **¿Listo para convertir tu Android en un PC de desarrollo?** Sigue esta guía y tendrás KDE Plasma, Godot y VS Code funcionando en minutos. ¡No necesitas root ni scripts mágicos!
+```
+---
 
 ![Termux](https://img.shields.io/badge/Termux-000000?style=for-the-badge&logo=termux&logoColor=white)
 ![KDE Plasma](https://img.shields.io/badge/KDE_Plasma-1D99F3?style=for-the-badge&logo=kde&logoColor=white)
