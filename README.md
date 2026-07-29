@@ -86,7 +86,7 @@ Por defecto, Termux no incluye paquetes gráficos ni software complejo. Necesita
 ## Fase 3: Instalación del Entorno Gráfico y Desarrollo
 Aquí es donde descargamos el núcleo visual, el audio y nuestros programas de trabajo.
 
-*   **`pkg install plasma htop konsole`**
+*   **`pkg install plasma htop konsole dolphin`**
     *   *¿Qué hace?* Instala KDE Plasma (el entorno de escritorio gráfico), `konsole` (la terminal gráfica de KDE) y `htop` (un administrador de tareas para monitorear el consumo de RAM y CPU).
 
 *   **`pkg install android-tools tigervnc`**
