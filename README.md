@@ -20,12 +20,16 @@ He pasado por muchas guías desactualizadas y scripts que rompen el sistema. Est
 Si estás aprendiendo Linux, maquetando webs o creando juegos en Godot desde tu dispositivo móvil, ejecutar e interiorizar cada comando te garantizará el control absoluto de tu estación portátil.
 
 ## 🚀 ¿Qué obtendrás al final?
-
-- Entorno de escritorio **KDE Plasma** fluido y estable.
-- Servidor gráfico (VNC) configurado con resolución y sonido (PulseAudio).
-- Solución definitiva al problema de *Procesos Fantasma (Phantom Processes)* de Android.
-- Herramientas instaladas: **Godot Engine**, **Visual Studio Code (OSS)**, Python, Node.js y Git.
-- Scripts propios de arranque (`xstartup`) y apagado seguro (`xshutdown`).
+* **Entorno de escritorio:** KDE Plasma fluido, ligero y estable en Android.
+* **Servidor gráfico:** VNC Server configurado con resolución personalizada y sonido funcional mediante `pulseaudio`.
+* **Estabilidad:** Solución definitiva al problema de Procesos Fantasma (*Phantom Processes Killer*) de Android 12+.
+* **Herramientas de desarrollo:** 
+  * **Videojuegos:** Godot Engine.
+  * **Editores de código:** Visual Studio Code (Code-OSS) y herramientas de texto.
+  * **Runtimes:** Python y Node.js.
+  * **Control de versiones:** Git.
+  * **Utilidades del sistema:** `htop`, `wget`, `unzip`, y funciones avanzadas de consola.
+* **Automatización propia:** Scripts personalizados de arranque (`xstartup`) y apagado seguro (`xshutdown`).
 
 ---
 
