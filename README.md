@@ -35,6 +35,33 @@ Si estás aprendiendo Linux, maquetando webs o creando juegos en Godot desde tu 
 
 ---
 
+## 📋 Requisitos Mínimos y Rendimiento Real
+
+### ⚙️ Requisitos Mínimos Recomendados
+* **Sistema Operativo:** Android 8.0 o superior (Atención en Android 12+ con el *Phantom Process Killer*, solucionado en la Fase 4).
+* **Memoria RAM:** 3 GB mínimo (4 GB recomendados para multitarea fluida con VS Code y Godot).
+* **Almacenamiento Libre:** 4 GB a 6 GB libres para el entorno gráfico, paquetes y proyectos.
+* **Aplicaciones auxiliares necesarias:** 
+  * [Termux](https://f-droid.org/en/packages/com.termux/) (instalado vía F-Droid o GitHub Releases).
+  * Cliente VNC (ej. RealVNC Viewer, bVNC o VNC Viewer).
+
+---
+
+### 📱 Dispositivo de Prueba (Benchmarking)
+Esta guía y su arquitectura fueron testeadas y optimizadas directamente en un equipo de **gama de entrada** para garantizar la máxima eficiencia:
+
+| Parámetro | Especificación del entorno de prueba |
+| :--- | :--- |
+| **Dispositivo** | Tecno Spark 10C |
+| **Procesador** | Octa-Core (GPU Mali) |
+| **Memoria RAM Física** | 4 GB (RAM utilizable/libre para el entorno: ~1.0 GB a 1.5 GB) |
+| **Prueba de Carga Simultánea** | 🎨 **Godot Engine** (Motor 2D) + 💻 **Code-OSS** (VS Code) + 🌐 **Firefox** |
+
+> **Nota de rendimiento:** A pesar de ser un procesador modesto de entrada, la sesión gráfica responde de forma fluida para desarrollo web y de juegos 2D, manteniendo un margen estable de memoria sin colapsar el sistema.
+> 
+
+---
+
 ## 🖼️ Vista Previa del Entorno
 
 Así se ve tu nueva estación de desarrollo una vez completada la guía:
@@ -57,6 +84,17 @@ Así se ve tu nueva estación de desarrollo una vez completada la guía:
 Esta guía no utiliza un script de automatización de un solo clic. Está diseñada paso a paso porque entender cómo funciona el entorno donde corren tus herramientas es vital. Ya sea que estés maquetando interfaces web desde cero, optimizando código, o estructurando gráficas y mecánicas en motores como Godot, depender de abstracciones mágicas o scripts automáticos te deja vulnerable cuando ocurren errores. 
 
 Ejecutar e interiorizar cada comando te garantiza el control absoluto de tu estación de desarrollo portátil, construyendo una base técnica sólida.
+
+---
+
+### 💡 Paso Previo: Descarga la APK Optimizada para tu Arquitectura
+
+Antes de iniciar la Fase 1, se recomienda instalar la versión de Termux adecuada para tu procesador en lugar del paquete universal:
+
+* **Versión Universal (F-Droid):** Pesa **~100 MB** porque incluye librerías para todas las arquitecturas posibles.
+* **Versión Optimizada (Recomendada desde el GitHub Oficial de Termux):**
+  * Para dispositivos de 64 bits (la gran mayoría de teléfonos actuales): Descarga el APK **`arm64-v8a`** (reduce el tamaño a solo **~30 MB**).
+  * Para equipos más antiguos de 32 bits: Descarga la versión **`armeabi-v7a`**.
 
 ---
 
@@ -117,6 +155,10 @@ Android tiene una medida de seguridad que cierra automáticamente los procesos e
     ```
     *   *¿Qué hacen?* Desactivan el monitor de procesos fantasma de Android y aumentan el límite de tareas en segundo plano al máximo posible, garantizando estabilidad.
 
+> 💡 **Consejos extra para exprimir el rendimiento de tu Android:**
+> 1. **Reducir Animaciones:** Ve a *Opciones de Desarrollador* en Android y ajusta la *Escala de animación de ventana*, *Transición* y *Durador* a `0.5x` o `Desactivadas`. Esto libera procesamiento gráfico continuo.
+> 2. **RAM Virtual / Ampliable:** Aunque tu dispositivo tenga la opción de "RAM virtual", ten en cuenta que esta utiliza la memoria interna (Flash), la cual es mucho más lenta que la RAM física. La estabilidad real dependerá de tus gigabytes de RAM física.
+ 
 ---
 
 ## Fase 5: Configuración del Servidor VNC
