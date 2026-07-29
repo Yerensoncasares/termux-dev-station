@@ -29,6 +29,20 @@ Si estás aprendiendo Linux, maquetando webs o creando juegos en Godot desde tu 
 
 ---
 
+## 🖼️ Vista Previa del Entorno
+
+Así se ve tu nueva estación de desarrollo una vez completada la guía:
+
+| Navegación web con Firefox | Editor de código VS Code |
+|---------------------------|--------------------------|
+| ![Firefox](./img/firefox-navegacion.png) | ![VS Code](./img/vscode-bienvenida.png) |
+
+| Motor de videojuegos Godot | Terminal htop |
+|----------------------------|---------------|
+| ![Godot](./img/godot-project-manager.png) | ![htop](./img/htop-terminal.png) |
+
+---
+
 ## 📖 Instrucciones de Instalación
 
 # Guía de Instalación: Entorno de Desarrollo Gráfico en Termux
