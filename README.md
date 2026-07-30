@@ -76,9 +76,9 @@ Esta guía y su arquitectura fueron testeadas y optimizadas directamente en un e
 
 Así se ve tu nueva estación de desarrollo una vez completada la guía:
 
-| Navegación web con Firefox | Editor de código VS Code |
-|---------------------------|--------------------------|
-| ![Firefox](./img/firefox-navegacion.png) | ![VS Code](./img/vscode-bienvenida.png) |
+| Escritorio KDE Plasma | Editor de código VS Code |
+|-----------------------|--------------------------|
+| ![KDE Plasma](./img/kde-plasma-desktop.png) | ![VS Code](./img/vscode-bienvenida.png) |
 
 | Motor de videojuegos Godot | Asistente de IA con OpenCode |
 |----------------------------|------------------------------|
@@ -88,9 +88,9 @@ Así se ve tu nueva estación de desarrollo una vez completada la guía:
 |------------------------|------------------------------------|
 | ![n8n](./img/n8n-dashboard.png) | ![GPU Benchmark](./img/gpu-virgl-benchmark.png) |
 
-| Terminal htop |
-|---------------|
-| ![htop](./img/htop-terminal.png) |
+| Navegación web con Firefox | Monitor del Sistema (htop) |
+|---------------------------|----------------------------|
+| ![Firefox](./img/firefox-navegacion.png) | ![htop](./img/htop-terminal.png) |
 
 ---
 
