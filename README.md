@@ -1,17 +1,18 @@
 # 📱 Termux-Dev-Station
-La guía definitiva para convertir Termux en un entorno de desarrollo gráfico. KDE Plasma, VS Code, Godot Engine y PulseAudio en tu Android. Paso a paso, estable y sin scripts ocultos. ¡Perfecto para DeX o monitor externo!
+La guía definitiva para convertir Termux en un entorno de desarrollo gráfico asistido por IA. KDE Plasma, VS Code, Godot Engine, OpenCode (Ollama) y PulseAudio en tu Android. Paso a paso, estable y sin scripts ocultos. ¡Perfecto para DeX o monitor externo!
 
 ```markdown
-> 🚀 **¿Listo para convertir tu Android en un PC de desarrollo?** Sigue esta guía y tendrás KDE Plasma, Godot y VS Code funcionando en minutos. ¡No necesitas root ni scripts mágicos!
+> 🚀 **¿Listo para convertir tu Android en un PC de desarrollo asistido por IA?** Sigue esta guía y tendrás KDE Plasma, Godot, VS Code y OpenCode funcionando en minutos. ¡No necesitas root ni scripts mágicos!
 ```
 ---
 
 ![Termux](https://img.shields.io/badge/Termux-000000?style=for-the-badge&logo=termux&logoColor=white)
 ![KDE Plasma](https://img.shields.io/badge/KDE_Plasma-1D99F3?style=for-the-badge&logo=kde&logoColor=white)
 ![Godot Engine](https://img.shields.io/badge/Godot_Engine-478CBF?style=for-the-badge&logo=godot-engine&logoColor=white)
+![Ollama](https://img.shields.io/badge/Ollama-000000?style=for-the-badge&logo=ollama&logoColor=white)
 ![Open Source](https://img.shields.io/badge/Open_Source-Success?style=for-the-badge)
 
-> **Una guía definitiva paso a paso para transformar Termux en un entorno de desarrollo completo con KDE Plasma, VS Code y Godot Engine, sin depender de scripts automatizados "mágicos".**
+> **Una guía definitiva paso a paso para transformar Termux en un entorno de desarrollo completo con KDE Plasma, VS Code, Godot Engine y asistencia de IA local (OpenCode + Ollama), sin depender de scripts automatizados "mágicos".**
 
 ---
 
@@ -19,18 +20,19 @@ La guía definitiva para convertir Termux en un entorno de desarrollo gráfico. 
 
 He pasado por muchas guías desactualizadas y scripts que rompen el sistema. Esta guía **no** utiliza un script de automatización de un solo clic. Está diseñada paso a paso porque entender cómo funciona el entorno donde corren tus herramientas es vital. 
 
-Si estás aprendiendo Linux, maquetando webs o creando juegos en Godot desde tu dispositivo móvil, ejecutar e interiorizar cada comando te garantizará el control absoluto de tu estación portátil.
+Si estás aprendiendo Linux, maquetando webs, creando juegos en Godot o interactuando con modelos de IA local desde tu dispositivo móvil, ejecutar e interiorizar cada comando te garantizará el control absoluto de tu estación portátil.
 
 ## 🚀 ¿Qué obtendrás al final?
 * **Entorno de escritorio:** KDE Plasma fluido, ligero y estable en Android.
 * **Servidor gráfico:** VNC Server configurado con resolución personalizada y sonido funcional mediante `pulseaudio`.
 * **Estabilidad:** Solución definitiva al problema de Procesos Fantasma (*Phantom Processes Killer*) de Android 12+.
 * **Herramientas de desarrollo:** 
+  * **Asistencia por IA Local:** OpenCode integrado con Ollama (`qwen2.5-coder:1.5b`) para autocompletado y refactorización inteligente directamente en la terminal, 100% offline.
   * **Videojuegos:** Godot Engine.
   * **Editores de código:** Visual Studio Code (Code-OSS) y herramientas de texto.
   * **Runtimes:** Python y Node.js.
   * **Control de versiones:** Git.
-  * **Utilidades del sistema:** `htop`, `wget`, `unzip`, y funciones avanzadas de consola.
+  * **Utilidades del sistema:** `htop`, `wget`, `unzip`, `ripgrep` y funciones avanzadas de consola.
 * **Automatización propia:** Scripts personalizados de arranque (`xstartup`) y apagado seguro (`xshutdown`).
 
 ---
@@ -38,9 +40,9 @@ Si estás aprendiendo Linux, maquetando webs o creando juegos en Godot desde tu 
 ## 📋 Requisitos Mínimos y Rendimiento Real
 
 ### ⚙️ Requisitos Mínimos Recomendados
-* **Sistema Operativo:** Android 8.0 o superior (Atención en Android 12+ con el *Phantom Process Killer*, solucionado en la Fase 4).
-* **Memoria RAM:** 3 GB mínimo (4 GB recomendados para multitarea fluida con VS Code y Godot).
-* **Almacenamiento Libre:** 4 GB a 6 GB libres para el entorno gráfico, paquetes y proyectos.
+* **Sistema Operativo:** Android 8.0 o superior (Atención en Android 12+ con el *Phantom Process Killer*, solucionado en la Fase 5).
+* **Memoria RAM:** 3 GB mínimo (4 GB recomendados para multitarea fluida con VS Code, Godot y el modelo de IA local).
+* **Almacenamiento Libre:** 6 GB a 8 GB libres (abarca todo el entorno gráfico, paquetes de desarrollo y el modelo cuantizado de IA).
 * **Aplicaciones auxiliares necesarias:** 
   * [Termux](https://f-droid.org/en/packages/com.termux/) (instalado vía F-Droid o GitHub Releases).
   * Cliente VNC (ej. RealVNC Viewer, bVNC o VNC Viewer).
@@ -55,9 +57,9 @@ Esta guía y su arquitectura fueron testeadas y optimizadas directamente en un e
 | **Dispositivo** | Tecno Spark 10C |
 | **Procesador** | Octa-Core (GPU Mali) |
 | **Memoria RAM Física** | 4 GB (RAM utilizable/libre para el entorno: ~1.0 GB a 1.5 GB) |
-| **Prueba de Carga Simultánea** | 🎨 **Godot Engine** (Motor 2D) + 💻 **Code-OSS** (VS Code) + 🌐 **Firefox** |
+| **Prueba de Carga Simultánea** | 🎨 **Godot Engine** (Motor 2D) + 💻 **Code-OSS** (VS Code) + 🌐 **Firefox** + 🤖 **OpenCode / Ollama** |
 
-> **Nota de rendimiento:** A pesar de ser un procesador modesto de entrada, la sesión gráfica responde de forma fluida para desarrollo web y de juegos 2D, manteniendo un margen estable de memoria sin colapsar el sistema.
+> **Nota de rendimiento:** A pesar de ser un procesador modesto de entrada, la sesión gráfica responde de forma fluida para desarrollo web, creación de juegos 2D y asistencia de código por IA local, manteniendo un margen estable de memoria sin colapsar el sistema.
 > 
 
 ---
@@ -81,10 +83,9 @@ Así se ve tu nueva estación de desarrollo una vez completada la guía:
 # Guía de Instalación: Entorno de Desarrollo Gráfico en Termux
 
 **Filosofía de esta guía:** 
-Esta guía no utiliza un script de automatización de un solo clic. Está diseñada paso a paso porque entender cómo funciona el entorno donde corren tus herramientas es vital. Ya sea que estés maquetando interfaces web desde cero, optimizando código, o estructurando gráficas y mecánicas en motores como Godot, depender de abstracciones mágicas o scripts automáticos te deja vulnerable cuando ocurren errores. 
+Esta guía no utiliza un script de automatización de un solo clic. Está diseñada paso a paso porque entender cómo funciona el entorno donde corren tus herramientas es vital. Ya sea que estés maquetando interfaces web desde cero, optimizando código con tu IA local, o estructurando gráficas y mecánicas en motores como Godot, depender de abstracciones mágicas o scripts automáticos te deja vulnerable cuando ocurren errores. 
 
 Ejecutar e interiorizar cada comando te garantiza el control absoluto de tu estación de desarrollo portátil, construyendo una base técnica sólida.
-
 ---
 
 ### 💡 Paso Previo: Descarga la APK Optimizada para tu Arquitectura
@@ -123,7 +124,83 @@ Por defecto, Termux no incluye paquetes gráficos ni software complejo. Necesita
 
 ---
 
-## Fase 3: Instalación del Entorno Gráfico y Desarrollo
+## Fase 3: Configuración del Asistente IA Local (Ollama + OpenCode)
+Para contar con autocompletado y asistencia de código inteligente local (sin enviar datos a servidores externos), configuraremos **Ollama** con un modelo optimizado y el ejecutable de **OpenCode**.
+
+### 1. Instalación de Ollama y Descarga del Modelo
+* **`pkg install ollama`**
+  * *¿Qué hace?* Instala el motor de IA local directo desde el repositorio TUR.
+* **`ollama serve &`**
+  * *¿Qué hace?* Inicia el servidor de Ollama en segundo plano.
+
+> ⚠️ **IMPORTANTE SOBRE OLLAMA:** 
+> El comando `ollama serve` debe estar ejecutándose siempre para que OpenCode pueda comunicarse con el modelo. Te recomendamos ejecutar la descarga del modelo y los futuros comandos de OpenCode en una **nueva pestaña/sesión de terminal** o en una ventana separada dentro de KDE Plasma.
+
+* **Descargar el modelo cuantizado:**
+  ```bash
+  ollama pull qwen2.5-coder:1.5b
+  ```
+  * *¿Qué hace? Descarga el modelo especializado en código **`qwen2.5-coder`** (1.5 mil millones de parámetros), ideal para mantener un consumo de RAM súper contenido (~1 GB) en dispositivos móviles.*
+  
+### 2. Descarga e Instalación de OpenCode
+ 
+Ejecutaremos los siguientes comandos para posicionar los binarios y librerías compiladas en las rutas del sistema de Termux:
+
+#### Descargar y descomprimir el paquete
+
+```bash
+curl -L -o opencode.zip [https://github.com/guysoft/opencode-termux/releases/latest/download/opencode-1.17.9-android-aarch64.zip](https://github.com/guysoft/opencode-termux/releases/latest/download/opencode-1.17.9-android-aarch64.zip)
+unzip opencode.zip
+```
+#### Crear directorios de destino y mover binarios principales
+
+```bash
+mkdir -p $PREFIX/libexec/opencode$PREFIX/lib
+mv opencode $PREFIX/bin/opencode
+chmod +x $PREFIX/bin/opencode
+```
+#### Mover binario interno y asignar permisos
+
+```bash
+mv opencode.bin $PREFIX/libexec/opencode/opencode.bin
+chmod +x $PREFIX/libexec/opencode/opencode.bin
+```
+#### Mover librerías compartidas necesarias
+
+```bash
+mv libtagfix.so libc++_shared.so libopentui.so $PREFIX/lib/
+```
+#### Instalar herramienta de búsqueda en texto requerida
+
+```bash
+pkg install ripgrep
+```
+### 3. Vinculación de OpenCode con Ollama
+ 
+Para que OpenCode reconozca a Ollama como su proveedor predeterminado, configuraremos las variables de entorno en tu perfil de consola:
+
+* Abre el archivo de configuración de Bash:
+
+```bash
+nano ~/.bashrc
+```
+* Añade las siguientes líneas al final del archivo:
+#### Configuración para OpenCode con Ollama Local
+
+```bash
+export OPENAI_API_KEY="ollama"
+export OPENAI_API_BASE="http://localhost:11434/v1"
+```
+Guarda (`Ctrl + O`, `Enter`), sal (`Ctrl + X`) y aplica los cambios:
+
+```bash
+source ~/.bashrc
+```
+Para probar el asistente: Con el servidor de Ollama corriendo en otra pestaña (`ollama serve`), simplemente escribe `opencode` en la terminal para iniciar el chat interactivo de desarrollo.
+
+---
+
+## Fase 4: Instalación del Entorno Gráfico y Desarrollo
 Aquí es donde descargamos el núcleo visual, el audio y nuestros programas de trabajo.
 
 *   **`pkg install plasma htop konsole dolphin`**
@@ -140,7 +217,7 @@ Aquí es donde descargamos el núcleo visual, el audio y nuestros programas de t
 
 ---
 
-## Fase 4: Solución de Procesos Fantasma (Vía ADB)
+## Fase 5: Solución de Procesos Fantasma (Vía ADB)
 Android tiene una medida de seguridad que cierra automáticamente los procesos en segundo plano que consumen mucha memoria. Como un entorno gráfico es pesado, el sistema lo cerrará si no desactivamos esta restricción.
 
 1.  **`adb pair 192.168.xxx.xxx:xxxxx xxxxxx`** *(Sustituye con tus datos)*
@@ -161,7 +238,7 @@ Android tiene una medida de seguridad que cierra automáticamente los procesos e
  
 ---
 
-## Fase 5: Configuración del Servidor VNC
+## Fase 6: Configuración del Servidor VNC
 Vamos a configurar el puente visual para transmitir la interfaz gráfica.
 
 *   **`vncserver`**
@@ -171,7 +248,7 @@ Vamos a configurar el puente visual para transmitir la interfaz gráfica.
 
 ---
 
-## Fase 6: Configuración del Script de Inicio (`xstartup`)
+## Fase 7: Configuración del Script de Inicio (`xstartup`)
 Automatizaremos el encendido correcto de la sesión gráfica, el audio y la limpieza previa.
 
 1.  Abre el editor de texto nativo ejecutando:
@@ -233,7 +310,7 @@ dbus-launch --exit-with-session startplasma-x11
 
 ---
 
-## Fase 7: Configuración del Script de Cierre (`xshutdown`)
+## Fase 8: Configuración del Script de Cierre (`xshutdown`)
 Cerrar los programas a la fuerza deja "basura" en la memoria. Este script apaga los procesos de forma limpia y segura.
 
 1.  Abre el editor de texto para crear el archivo de apagado:
@@ -289,6 +366,15 @@ Este proyecto fue creado a base de prueba, error y mucha investigación.
 Si esta guía te ha sido útil para tu propio proyecto o repositorio, **te agradecería mucho que me menciones o dejes un enlace a este repositorio original**. 
 
 ¡Las contribuciones, sugerencias y mejoras son totalmente bienvenidas! Si descubres alguna actualización en los repositorios, no dudes en abrir un *Issue* o un *Pull Request*.
+
+```markdown
+## 🤝 Reconocimientos
+
+* **Entorno base y guía:** Diseñado y probado por el autor original de este repositorio.
+* **Compilación de OpenCode para Termux:** Un reconocimiento especial al proyecto [opencode-termux de GuySoft](https://github.com/guysoft/opencode-termux) por compilar y adaptar los binarios de `opencode` y sus librerías compartidas (`libopentui.so`, `libtagfix.so`) para la arquitectura `aarch64` en Termux.
+
+¡Las contribuciones, sugerencias e Issues son totalmente bienvenidos!
+```
 
 ## 📜 Licencia
 
