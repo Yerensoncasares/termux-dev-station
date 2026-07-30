@@ -72,9 +72,13 @@ Así se ve tu nueva estación de desarrollo una vez completada la guía:
 |---------------------------|--------------------------|
 | ![Firefox](./img/firefox-navegacion.png) | ![VS Code](./img/vscode-bienvenida.png) |
 
-| Motor de videojuegos Godot | Terminal htop |
-|----------------------------|---------------|
-| ![Godot](./img/godot-project-manager.png) | ![htop](./img/htop-terminal.png) |
+| Motor de videojuegos Godot | Asistente de IA con OpenCode |
+|----------------------------|------------------------------|
+| ![Godot](./img/godot-project-manager.png) | ![OpenCode](./img/opencode-asistente.png) |
+
+| Terminal htop |
+|---------------|
+| ![htop](./img/htop-terminal.png) |
 
 ---
 
