@@ -367,14 +367,10 @@ Si esta guía te ha sido útil para tu propio proyecto o repositorio, **te agrad
 
 ¡Las contribuciones, sugerencias y mejoras son totalmente bienvenidas! Si descubres alguna actualización en los repositorios, no dudes en abrir un *Issue* o un *Pull Request*.
 
-```markdown
-## 🤝 Reconocimientos
-
 * **Entorno base y guía:** Diseñado y probado por el autor original de este repositorio.
 * **Compilación de OpenCode para Termux:** Un reconocimiento especial al proyecto [opencode-termux de GuySoft](https://github.com/guysoft/opencode-termux) por compilar y adaptar los binarios de `opencode` y sus librerías compartidas (`libopentui.so`, `libtagfix.so`) para la arquitectura `aarch64` en Termux.
 
 ¡Las contribuciones, sugerencias e Issues son totalmente bienvenidos!
-```
 
 ## 📜 Licencia
 
