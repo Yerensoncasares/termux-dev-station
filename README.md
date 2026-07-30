@@ -264,7 +264,22 @@ Automatizaremos el encendido correcto de la sesión gráfica, el audio y la limp
 ```bash
 #!/data/data/com.termux/files/usr/bin/sh
 
-# Configurar lenguaje 
+# Configuración de variables VNC
+localhost="no"
+
+# Activar el renderizado VirGL nativo para GPU Mali
+export GALLIUM_DRIVER=virpipe
+export MESA_GL_VERSION_OVERRIDE=4.0
+
+# Desactivar funciones de gestión de energía que causan bloqueos
+xset s off &
+xset -dpms &
+
+# Variables para OpenCode / Ollama en la sesión gráfica
+export OPENAI_API_KEY="ollama"
+export OPENAI_API_BASE="http://localhost:11434/v1"
+
+# Configurar localización e idioma
 export LANG=es_ES.UTF-8
 export LANGUAGE=es_ES.UTF-8
 export LC_ALL=C.UTF-8
@@ -275,18 +290,18 @@ export XDG_RUNTIME_DIR=${TMPDIR}
 export QT_QPA_PLATFORM=xcb
 
 # --- BLOQUE DE LIMPIEZA AUTOMÁTICA PREVIA A LA SESIÓN ---
-# Eliminar sockets colgados de X11 y D-Bus
+# Eliminar sockets colgados de X11, D-Bus y PulseAudio
 rm -rf $TMPDIR/.X11-unix/X*
 rm -rf $TMPDIR/dbus-*
 rm -rf $TMPDIR/pulse-*
 
-# Limpiar caché de fuentes y previsualizaciones de KDE/Qt
+# Limpiar caché de fuentes, vistas previas e interfaces
 rm -rf $HOME/.cache/ico*
 rm -rf $HOME/.cache/kio*
 rm -rf $HOME/.cache/plasma*
 rm -rf $HOME/.cache/QtWebEngine
 
-# Eliminar bloqueos de archivos de sesiones anteriores
+# Eliminar archivos de bloqueo de sesiones anteriores
 rm -f $HOME/.config/session/*
 # --------------------------------------------------------
 
@@ -296,7 +311,10 @@ pulseaudio --start --exit-idle-time=-1 2>/dev/null
 # Cargar recursos gráficos básicos
 [ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
 
-# Arrancar KDE Plasma envuelto en una sesión de D-Bus activa
+# Desactivar el compositor del gestor de ventanas si usas XFCE/WMs livianos para evitar pérdidas de rendimiento
+xfwm4 --replace --compositor=off & 2>/dev/null
+
+# Arrancar KDE Plasma envuelto en una sesión D-Bus activa
 dbus-launch --exit-with-session startplasma-x11
 ```
 *(Guarda con `Ctrl + O`, presiona `Enter` y sal con `Ctrl + X`)*
@@ -326,18 +344,19 @@ Cerrar los programas a la fuerza deja "basura" en la memoria. Este script apaga 
 ```bash
 #!/data/data/com.termux/files/usr/bin/sh
 
-# Definir rutas temporales nativas de Termux
 export TMPDIR=/data/data/com.termux/files/usr/tmp
 
-# 1. Terminar los procesos de la sesión actual de forma ordenada
+# 1. Terminar procesos gráficos y de servidor
 kquitapp5 plasmashell 2>/dev/null
 killall startplasma-x11 2>/dev/null
+pkill virgl_test
+pkill Xvnc
 
 # 2. Detener D-Bus y PulseAudio
 killall dbus-daemon 2>/dev/null
 pulseaudio --kill 2>/dev/null
 
-# 3. Limpieza de seguridad final para dejar el entorno impecable
+# 3. Limpieza de sockets temporales y archivos de bloqueo
 rm -rf $TMPDIR/.X11-unix/X*
 rm -rf $TMPDIR/dbus-*
 rm -rf $TMPDIR/pulse-*
