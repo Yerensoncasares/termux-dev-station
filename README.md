@@ -1,48 +1,58 @@
 # 📱 Termux-Dev-Station
-La guía definitiva para convertir Termux en un entorno de desarrollo gráfico asistido por IA. KDE Plasma, VS Code, Godot Engine, OpenCode (Ollama) y PulseAudio en tu Android. Paso a paso, estable y sin scripts ocultos. ¡Perfecto para DeX o monitor externo!
+La guía definitiva para convertir Termux en un entorno de desarrollo gráfico acelerado por GPU y asistido por IA. KDE Plasma, VS Code, Godot Engine, OpenCode (Ollama), n8n y PulseAudio en tu Android. Paso a paso, estable y sin scripts ocultos. ¡Perfecto para DeX o monitor externo!
 
-```markdown
-> 🚀 **¿Listo para convertir tu Android en un PC de desarrollo asistido por IA?** Sigue esta guía y tendrás KDE Plasma, Godot, VS Code y OpenCode funcionando en minutos. ¡No necesitas root ni scripts mágicos!
-```
+> 🚀 **¿Listo para convertir tu Android en un PC de desarrollo asistido por IA?** Sigue esta guía y tendrás KDE Plasma, Godot, VS Code, n8n y OpenCode funcionando en minutos. ¡No necesitas root ni scripts mágicos!
+
 ---
 
 ![Termux](https://img.shields.io/badge/Termux-000000?style=for-the-badge&logo=termux&logoColor=white)
 ![KDE Plasma](https://img.shields.io/badge/KDE_Plasma-1D99F3?style=for-the-badge&logo=kde&logoColor=white)
 ![Godot Engine](https://img.shields.io/badge/Godot_Engine-478CBF?style=for-the-badge&logo=godot-engine&logoColor=white)
 ![Ollama](https://img.shields.io/badge/Ollama-000000?style=for-the-badge&logo=ollama&logoColor=white)
+![n8n](https://img.shields.io/badge/n8n-FF6D5A?style=for-the-badge&logo=n8n&logoColor=white)
 ![Open Source](https://img.shields.io/badge/Open_Source-Success?style=for-the-badge)
-
-> **Una guía definitiva paso a paso para transformar Termux en un entorno de desarrollo completo con KDE Plasma, VS Code, Godot Engine y asistencia de IA local (OpenCode + Ollama), sin depender de scripts automatizados "mágicos".**
 
 ---
 
 ## 💡 Filosofía del Proyecto
 
-He pasado por muchas guías desactualizadas y scripts que rompen el sistema. Esta guía **no** utiliza un script de automatización de un solo clic. Está diseñada paso a paso porque entender cómo funciona el entorno donde corren tus herramientas es vital. 
+He pasado por muchas guías desactualizadas y scripts opacos que rompen el sistema. Esta guía **no** utiliza un script de automatización a ciegas. Está diseñada paso a paso porque entender cómo funciona el entorno donde corren tus herramientas es fundamental.
 
-Si estás aprendiendo Linux, maquetando webs, creando juegos en Godot o interactuando con modelos de IA local desde tu dispositivo móvil, ejecutar e interiorizar cada comando te garantizará el control absoluto de tu estación portátil.
+Ya sea que estés maquetando interfaces con **HTML, CSS y JavaScript nativos**, optimizando código con tu **IA local**, creando mecánicas en **Godot Engine** o desplegando automatizaciones en **n8n**, ejecutar e interiorizar cada comando te garantizará el control absoluto de tu estación de desarrollo portátil.
+
+---
+
+## ⚡ Aceleración de Hardware GPU (Mali / MediaTek / Exynos via VirGL + Vulkan + ANGLE)
+
+A diferencia de la mayoría de las guías enfocadas exclusivamente en Adreno, esta configuración habilita la **aceleración por GPU real en procesadores con GPU Mali**. 
+
+Al delegar el renderizado 3D e interfaz a la GPU en lugar de forzar a la CPU con renderizado por software, el rendimiento se dispara, el consumo energético cae y el dispositivo se mantiene completamente **frío (~36 °C)** bajo cargas pesadas de trabajo.
+
+---
 
 ## 🚀 ¿Qué obtendrás al final?
 * **Entorno de escritorio:** KDE Plasma fluido, ligero y estable en Android.
+* **Aceleración por GPU:** Renderizado nativo con VirGL sobre ANGLE/Vulkan para GPUs Mali/MediaTek.
 * **Servidor gráfico:** VNC Server configurado con resolución personalizada y sonido funcional mediante `pulseaudio`.
 * **Estabilidad:** Solución definitiva al problema de Procesos Fantasma (*Phantom Processes Killer*) de Android 12+.
 * **Herramientas de desarrollo:** 
-  * **Asistencia por IA Local:** OpenCode integrado con Ollama (`qwen2.5-coder:1.5b`) para autocompletado y refactorización inteligente directamente en la terminal, 100% offline.
-  * **Videojuegos:** Godot Engine.
-  * **Editores de código:** Visual Studio Code (Code-OSS) y herramientas de texto.
+  * **Asistencia por IA Local:** OpenCode integrado con Ollama (`qwen2.5-coder:1.5b`) para autocompletado y chat interactivo, 100% offline.
+  * **Automatización de Flujos:** Servidor n8n integrado y optimizado.
+  * **Videojuegos:** Godot Engine (2D/3D).
+  * **Editores de código:** Visual Studio Code (Code-OSS).
   * **Runtimes:** Python y Node.js.
-  * **Control de versiones:** Git.
+  * **Control de versiones:** Git y GitHub CLI.
   * **Utilidades del sistema:** `htop`, `wget`, `unzip`, `ripgrep` y funciones avanzadas de consola.
-* **Automatización propia:** Scripts personalizados de arranque (`xstartup`) y apagado seguro (`xshutdown`).
+* **Mantenimiento y Automatización:** Scripts de arranque (`xstartup`), apagado seguro (`xshutdown`) y rutina de limpieza de espacio.
 
 ---
 
 ## 📋 Requisitos Mínimos y Rendimiento Real
 
 ### ⚙️ Requisitos Mínimos Recomendados
-* **Sistema Operativo:** Android 8.0 o superior (Atención en Android 12+ con el *Phantom Process Killer*, solucionado en la Fase 5).
-* **Memoria RAM:** 3 GB mínimo (4 GB recomendados para multitarea fluida con VS Code, Godot y el modelo de IA local).
-* **Almacenamiento Libre:** 6 GB a 8 GB libres (abarca todo el entorno gráfico, paquetes de desarrollo y el modelo cuantizado de IA).
+* **Sistema Operativo:** Android 8.0 o superior (Atención en Android 12+ con el *Phantom Process Killer*, solucionado en la Fase 6).
+* **Memoria RAM:** 3 GB mínimo (4 GB recomendados para multitarea fluida con VS Code, Godot, n8n y el modelo de IA local).
+* **Almacenamiento Libre:** 8 GB a 10 GB libres (abarca todo el entorno gráfico, paquetes de desarrollo, modelos de IA y dependencias de Node.js).
 * **Aplicaciones auxiliares necesarias:** 
   * [Termux](https://f-droid.org/en/packages/com.termux/) (instalado vía F-Droid o GitHub Releases).
   * Cliente VNC (ej. RealVNC Viewer, bVNC o VNC Viewer).
@@ -55,12 +65,10 @@ Esta guía y su arquitectura fueron testeadas y optimizadas directamente en un e
 | Parámetro | Especificación del entorno de prueba |
 | :--- | :--- |
 | **Dispositivo** | Tecno Spark 10C |
-| **Procesador** | Octa-Core (GPU Mali) |
-| **Memoria RAM Física** | 4 GB (RAM utilizable/libre para el entorno: ~1.0 GB a 1.5 GB) |
-| **Prueba de Carga Simultánea** | 🎨 **Godot Engine** (Motor 2D) + 💻 **Code-OSS** (VS Code) + 🌐 **Firefox** + 🤖 **OpenCode / Ollama** |
-
-> **Nota de rendimiento:** A pesar de ser un procesador modesto de entrada, la sesión gráfica responde de forma fluida para desarrollo web, creación de juegos 2D y asistencia de código por IA local, manteniendo un margen estable de memoria sin colapsar el sistema.
-> 
+| **Procesador / GPU** | Octa-Core (GPU Mali-G57) |
+| **Tasa de Refresco** | **200+ FPS** sostenidos en `glxgears` vía VirGL |
+| **Memoria RAM Física** | 4 GB |
+| **Prueba de Carga Simultánea** | 🎨 **Godot Engine** + 💻 **Code-OSS** + 🌐 **Firefox** + 🤖 **OpenCode / Ollama** + ⚡ **n8n** |
 
 ---
 
@@ -76,190 +84,182 @@ Así se ve tu nueva estación de desarrollo una vez completada la guía:
 |----------------------------|------------------------------|
 | ![Godot](./img/godot-project-manager.png) | ![OpenCode](./img/opencode-asistente.png) |
 
+| Automatización con n8n | Rendimiento GPU (VirGL / glxgears) |
+|------------------------|------------------------------------|
+| ![n8n](./img/n8n-dashboard.png) | ![GPU Benchmark](./img/gpu-virgl-benchmark.png) |
+
 | Terminal htop |
 |---------------|
 | ![htop](./img/htop-terminal.png) |
 
 ---
 
-## 📖 Instrucciones de Instalación
-
-# Guía de Instalación: Entorno de Desarrollo Gráfico en Termux
-
-**Filosofía de esta guía:** 
-Esta guía no utiliza un script de automatización de un solo clic. Está diseñada paso a paso porque entender cómo funciona el entorno donde corren tus herramientas es vital. Ya sea que estés maquetando interfaces web desde cero, optimizando código con tu IA local, o estructurando gráficas y mecánicas en motores como Godot, depender de abstracciones mágicas o scripts automáticos te deja vulnerable cuando ocurren errores. 
-
-Ejecutar e interiorizar cada comando te garantiza el control absoluto de tu estación de desarrollo portátil, construyendo una base técnica sólida.
----
+## 📖 Instrucciones de Instalación Paso a Paso
 
 ### 💡 Paso Previo: Descarga la APK Optimizada para tu Arquitectura
 
 Antes de iniciar la Fase 1, se recomienda instalar la versión de Termux adecuada para tu procesador en lugar del paquete universal:
 
-* **Versión Universal (F-Droid):** Pesa **~100 MB** porque incluye librerías para todas las arquitecturas posibles.
-* **Versión Optimizada (Recomendada desde el GitHub Oficial de Termux):**
-  * Para dispositivos de 64 bits (la gran mayoría de teléfonos actuales): Descarga el APK **`arm64-v8a`** (reduce el tamaño a solo **~30 MB**).
-  * Para equipos más antiguos de 32 bits: Descarga la versión **`armeabi-v7a`**.
+* **Versión Universal (F-Droid):** Pesa **~100 MB** porque incluye librerías para todas las arquitecturas.
+* **Versión Optimizada (Recomendada desde GitHub Releases de Termux):**
+  * Dispositivos de 64 bits: Descarga el APK **`arm64-v8a`** (reduce el tamaño a solo **~30 MB**).
+  * Dispositivos de 32 bits: Descarga la versión **`armeabi-v7a`**.
 
 ---
 
 ## Fase 1: Preparación del Sistema Base
-Antes de instalar programas, necesitamos que Termux tenga los permisos adecuados y esté completamente actualizado.
+Otorga permisos de almacenamiento, selecciona el servidor espejo más rápido y actualiza los paquetes básicos:
 
-*   **`termux-setup-storage`**
-    *   *¿Qué hace?* Le otorga a Termux los permisos necesarios para acceder a los archivos de tu almacenamiento interno. Sin esto, no podrías guardar ni leer proyectos de tu dispositivo.
-
-*   **`termux-change-repo`**
-    *   *¿Qué hace?* Abre un menú para que elijas un servidor espejo (mirror) más cercano a tu localidad. Esto hace que las descargas de paquetes sean muchísimo más rápidas y estables.
-
-*   **`apt upgrade -y`** seguido de **`pkg update && pkg upgrade`**
-    *   *¿Qué hacen?* Actualizan las listas de software y descargan las últimas versiones de los componentes esenciales que ya trae Termux por defecto.
+```bash
+termux-setup-storage
+termux-change-repo
+pkg update && pkg upgrade -y
+```
 
 ---
 
-## Fase 2: Expansión de Repositorios y Herramientas Vitales
-Por defecto, Termux no incluye paquetes gráficos ni software complejo. Necesitamos añadir repositorios adicionales.
+## Fase 2: Expansión de Repositorios y Capa de Aceleración GPU (Mali VirGL)
+Añade los repositorios adicionales, las herramientas de red y la capa de aceleración gráfica para procesadores Mali:
 
-*   **`pkg install tur-repo x11-repo`**
-    *   *¿Qué hace?* `x11-repo` añade el catálogo de aplicaciones gráficas (necesarias para el entorno de escritorio) y `tur-repo` (Termux User Repository) añade herramientas extra mantenidas por la comunidad.
+```bash
+pkg install tur-repo x11-repo -y
+pkg install git unzip wget curl ripgrep -y
+pkg install virglrenderer-android angle-android mesa-demos -y
+```
 
-*   **`pkg install git unzip wget curl`**
-    *   *¿Qué hace?* Instala utilidades de red y manejo de archivos. `git` es para control de versiones, `unzip` para descomprimir archivos, y `wget` / `curl` sirven para descargar recursos directamente desde internet a través de la consola.
+### Modos de Ejecución del Servidor VirGL
+Puedes iniciar el servidor VirGL de acuerdo a las capacidades de tu dispositivo:
+
+```bash
+# Opción 1: ANGLE + Vulkan (Recomendado para GPU Mali - Silencia logs no críticos)
+virgl_test_server_android --angle-vulkan 2>/dev/null &
+
+# Opción 2: ANGLE + OpenGL ES
+virgl_test_server_android --angle-gl 2>/dev/null &
+
+# Opción 3: Modo Nativo (Fallback)
+virgl_test_server_android 2>/dev/null &
+```
 
 ---
 
 ## Fase 3: Configuración del Asistente IA Local (Ollama + OpenCode)
-Para contar con autocompletado y asistencia de código inteligente local (sin enviar datos a servidores externos), configuraremos **Ollama** con un modelo optimizado y el ejecutable de **OpenCode**.
 
 ### 1. Instalación de Ollama y Descarga del Modelo
-* **`pkg install ollama`**
-  * *¿Qué hace?* Instala el motor de IA local directo desde el repositorio TUR.
-* **`ollama serve &`**
-  * *¿Qué hace?* Inicia el servidor de Ollama en segundo plano.
+```bash
+pkg install ollama -y
+ollama serve &
+```
 
-> ⚠️ **IMPORTANTE SOBRE OLLAMA:** 
-> El comando `ollama serve` debe estar ejecutándose siempre para que OpenCode pueda comunicarse con el modelo. Te recomendamos ejecutar la descarga del modelo y los futuros comandos de OpenCode en una **nueva pestaña/sesión de terminal** o en una ventana separada dentro de KDE Plasma.
+En una **nueva pestaña de terminal**, descarga el modelo liviano especializado en código:
+```bash
+ollama pull qwen2.5-coder:1.5b
+```
 
-* **Descargar el modelo cuantizado:**
-  ```bash
-  ollama pull qwen2.5-coder:1.5b
-  ```
-  * *¿Qué hace? Descarga el modelo especializado en código **`qwen2.5-coder`** (1.5 mil millones de parámetros), ideal para mantener un consumo de RAM súper contenido (~1 GB) en dispositivos móviles.*
-  
-### 2. Descarga e Instalación de OpenCode
- 
-Ejecutaremos los siguientes comandos para posicionar los binarios y librerías compiladas en las rutas del sistema de Termux:
-
-#### Descargar y descomprimir el paquete
-
+### 2. Instalación de los Binarios de OpenCode
 ```bash
 curl -L -o opencode.zip [https://github.com/guysoft/opencode-termux/releases/latest/download/opencode-1.17.9-android-aarch64.zip](https://github.com/guysoft/opencode-termux/releases/latest/download/opencode-1.17.9-android-aarch64.zip)
 unzip opencode.zip
-```
-#### Crear directorios de destino y mover binarios principales
 
-```bash
-mkdir -p $PREFIX/libexec/opencode$PREFIX/lib
+mkdir -p $PREFIX/libexec/opencode $PREFIX/lib
 mv opencode $PREFIX/bin/opencode
 chmod +x $PREFIX/bin/opencode
-```
-#### Mover binario interno y asignar permisos
 
-```bash
 mv opencode.bin $PREFIX/libexec/opencode/opencode.bin
 chmod +x $PREFIX/libexec/opencode/opencode.bin
-```
-#### Mover librerías compartidas necesarias
 
-```bash
 mv libtagfix.so libc++_shared.so libopentui.so $PREFIX/lib/
 ```
-#### Instalar herramienta de búsqueda en texto requerida
 
-```bash
-pkg install ripgrep
-```
 ### 3. Vinculación de OpenCode con Ollama
- 
-Para que OpenCode reconozca a Ollama como su proveedor predeterminado, configuraremos las variables de entorno en tu perfil de consola:
-
-* Abre el archivo de configuración de Bash:
+Añade las variables de entorno a tu perfil de consola:
 
 ```bash
-nano ~/.bashrc
-```
-* Añade las siguientes líneas al final del archivo:
-#### Configuración para OpenCode con Ollama Local
-
-```bash
-export OPENAI_API_KEY="ollama"
-export OPENAI_API_BASE="http://localhost:11434/v1"
-```
-Guarda (`Ctrl + O`, `Enter`), sal (`Ctrl + X`) y aplica los cambios:
-
-```bash
+echo 'export OPENAI_API_KEY="ollama"' >> ~/.bashrc
+echo 'export OPENAI_API_BASE="http://localhost:11434/v1"' >> ~/.bashrc
 source ~/.bashrc
 ```
-Para probar el asistente: Con el servidor de Ollama corriendo en otra pestaña (`ollama serve`), simplemente escribe `opencode` en la terminal para iniciar el chat interactivo de desarrollo.
 
 ---
 
-## Fase 4: Instalación del Entorno Gráfico y Desarrollo
-Aquí es donde descargamos el núcleo visual, el audio y nuestros programas de trabajo.
+## Fase 4: Despliegue de n8n y Mantenimiento de Espacio
 
-*   **`pkg install plasma htop konsole dolphin`**
-    *   *¿Qué hace?* Instala KDE Plasma (el entorno de escritorio gráfico), `konsole` (la terminal gráfica de KDE) y `htop` (un administrador de tareas para monitorear el consumo de RAM y CPU).
+### 1. Instalación de n8n
+Ejecuta el instalador verificado para Termux:
 
-*   **`pkg install android-tools tigervnc`**
-    *   *¿Qué hace?* `android-tools` proporciona la herramienta ADB para controlar el propio dispositivo internamente, y `tigervnc` es el servidor que transmitirá la imagen del escritorio para que podamos proyectarla en una pantalla.
+```bash
+curl -o termux-n8n.sh [https://raw.githubusercontent.com/DevCoreXOfficial/termux-n8n/main/termux-n8n.sh](https://raw.githubusercontent.com/DevCoreXOfficial/termux-n8n/main/termux-n8n.sh)
+chmod +x termux-n8n.sh
+bash termux-n8n.sh
+```
 
-*   **`pkg install pulseaudio firefox godot`**
-    *   *¿Qué hace?* Instala el servidor de audio (PulseAudio), un navegador web funcional (Firefox) y el motor de videojuegos Godot.
+### 2. Rutina Agresiva de Limpieza de Almacenamiento
+Dado que n8n y las dependencias de Node.js / Python pueden consumir espacio, ejecuta esta rutina para recuperar gigabytes de memoria:
 
-*   **`pkg install python nodejs code-oss code-is-code-oss`**
-    *   *¿Qué hace?* Instala los entornos de ejecución para Python y JavaScript (Node.js), además de la versión de código abierto de Visual Studio Code.
+```bash
+# Limpiar caché acumulada de npm y pip
+npm cache clean --force
+pip cache purge
 
----
-
-## Fase 5: Solución de Procesos Fantasma (Vía ADB)
-Android tiene una medida de seguridad que cierra automáticamente los procesos en segundo plano que consumen mucha memoria. Como un entorno gráfico es pesado, el sistema lo cerrará si no desactivamos esta restricción.
-
-1.  **`adb pair 192.168.xxx.xxx:xxxxx xxxxxx`** *(Sustituye con tus datos)*
-    *   *¿Qué hace?* Empareja Termux de forma inalámbrica con las opciones de desarrollador del dispositivo.
-2.  **`adb connect 192.168.xxx.xxx:xxxxx`** *(Sustituye con tus datos)*
-    *   *¿Qué hace?* Establece la conexión final de depuración por red.
-3.  **Ejecuta los siguientes comandos uno por uno:**
-    ```bash
-    adb shell "/system/bin/device_config set_sync_disabled_for_tests persistent"
-    adb shell "/system/bin/device_config put activity_manager max_phantom_processes 2147483647"
-    adb shell settings put global settings_enable_monitor_phantom_procs false
-    ```
-    *   *¿Qué hacen?* Desactivan el monitor de procesos fantasma de Android y aumentan el límite de tareas en segundo plano al máximo posible, garantizando estabilidad.
-
-> 💡 **Consejos extra para exprimir el rendimiento de tu Android:**
-> 1. **Reducir Animaciones:** Ve a *Opciones de Desarrollador* en Android y ajusta la *Escala de animación de ventana*, *Transición* y *Durador* a `0.5x` o `Desactivadas`. Esto libera procesamiento gráfico continuo.
-> 2. **RAM Virtual / Ampliable:** Aunque tu dispositivo tenga la opción de "RAM virtual", ten en cuenta que esta utiliza la memoria interna (Flash), la cual es mucho más lenta que la RAM física. La estabilidad real dependerá de tus gigabytes de RAM física.
- 
----
-
-## Fase 6: Configuración del Servidor VNC
-Vamos a configurar el puente visual para transmitir la interfaz gráfica.
-
-*   **`vncserver`**
-    *   *¿Qué hace?* Al ejecutarlo por primera vez, pedirá crear una contraseña de 6 dígitos. Escríbela, repítela, y cuando pregunte por una contraseña de solo lectura, presiona **n** y luego Enter.
-*   **`vncserver -kill :1`**
-    *   *¿Qué hace?* Detiene el servidor temporal que acabamos de crear para configurar los scripts de inicio correctamente.
+# Limpiar paquetes instaladores .deb y temporales del sistema
+pkg clean
+apt autoremove --purge
+rm -rf $PREFIX/tmp/*
+```
 
 ---
 
-## Fase 7: Configuración del Script de Inicio (`xstartup`)
-Automatizaremos el encendido correcto de la sesión gráfica, el audio y la limpieza previa.
+## Fase 5: Instalación del Entorno Gráfico y Herramientas Dev
 
-1.  Abre el editor de texto nativo ejecutando:
-    ```bash
-    nano ~/.vnc/xstartup
-    ```
-2.  Copia y pega exactamente el siguiente código en el editor:
+Instala KDE Plasma, herramientas de audio, desarrollo, servidor VNC y aplicaciones principales:
+
+```bash
+pkg install plasma htop konsole dolphin -y
+pkg install android-tools tigervnc -y
+pkg install pulseaudio firefox godot -y
+pkg install python nodejs code-oss code-is-code-oss -y
+```
+
+---
+
+## Fase 6: Solución de Procesos Fantasma (Vía ADB Inalámbrico)
+
+Desactiva la restricción *Phantom Process Killer* de Android 12+ mediante depuración por red:
+
+1. Activa la **Depuración por Wi-Fi** en Opciones de Desarrollador.
+2. Empareja y conecta Termux:
+   ```bash
+   adb pair 192.168.xxx.xxx:xxxxx xxxxxx
+   adb connect 192.168.xxx.xxx:xxxxx
+   ```
+3. Desactiva el límite de procesos:
+   ```bash
+   adb shell "/system/bin/device_config set_sync_disabled_for_tests persistent"
+   adb shell "/system/bin/device_config put activity_manager max_phantom_processes 2147483647"
+   adb shell settings put global settings_enable_monitor_phantom_procs false
+   ```
+
+---
+
+## Fase 7: Configuración del Servidor VNC
+
+Crea la configuración inicial del servidor gráfico:
+
+```bash
+vncserver
+vncserver -kill :1
+```
+
+---
+
+## Fase 8: Configuración del Script de Inicio (`~/.vnc/xstartup`)
+
+Abre el editor:
+```bash
+nano ~/.vnc/xstartup
+```
+
+Pega el siguiente script completo con soporte VirGL y limpieza automática:
 
 ```bash
 #!/data/data/com.termux/files/usr/bin/sh
@@ -295,7 +295,7 @@ rm -rf $TMPDIR/.X11-unix/X*
 rm -rf $TMPDIR/dbus-*
 rm -rf $TMPDIR/pulse-*
 
-# Limpiar caché de fuentes, vistas previas e interfaces
+# Limpiar caché de fuentes, vistas previas e interfaces de KDE/Qt
 rm -rf $HOME/.cache/ico*
 rm -rf $HOME/.cache/kio*
 rm -rf $HOME/.cache/plasma*
@@ -311,42 +311,35 @@ pulseaudio --start --exit-idle-time=-1 2>/dev/null
 # Cargar recursos gráficos básicos
 [ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
 
-# Desactivar el compositor del gestor de ventanas si usas XFCE/WMs livianos para evitar pérdidas de rendimiento
+# Desactivar el compositor del gestor de ventanas para evitar pérdida de rendimiento
 xfwm4 --replace --compositor=off & 2>/dev/null
 
 # Arrancar KDE Plasma envuelto en una sesión D-Bus activa
 dbus-launch --exit-with-session startplasma-x11
 ```
-*(Guarda con `Ctrl + O`, presiona `Enter` y sal con `Ctrl + X`)*
 
-3.  Otorga permisos de ejecución:
-    ```bash
-    chmod +x ~/.vnc/xstartup
-    ```
-    *   *¿Qué hace?* Convierte el archivo de texto en un programa ejecutable.
-
-> **Para iniciar tu entorno gráfico y hacerlo visible en tu red local:** 
-> Ejecuta `vncserver` (sin la bandera `-localhost`). Luego, desde tu cliente VNC (ej. RealVNC, bVNC) en otro dispositivo, conecta usando la **IP local de tu teléfono** y el puerto `5901` (ej. `192.168.1.45:5901`).
-> 
-> ⚠️ **Seguridad:** Al quitar `-localhost`, cualquiera en tu red WiFi podría intentar conectarse. La contraseña que pusiste al ejecutar `vncserver` por primera vez es tu única barrera, así que no la compartas.
+Asigna permisos de ejecución:
+```bash
+chmod +x ~/.vnc/xstartup
+```
 
 ---
 
-## Fase 8: Configuración del Script de Cierre (`xshutdown`)
-Cerrar los programas a la fuerza deja "basura" en la memoria. Este script apaga los procesos de forma limpia y segura.
+## Fase 9: Configuración del Script de Cierre (`~/.vnc/xshutdown`)
 
-1.  Abre el editor de texto para crear el archivo de apagado:
-    ```bash
-    nano ~/.vnc/xshutdown
-    ```
-2.  Copia y pega exactamente el siguiente código:
+Abre el editor:
+```bash
+nano ~/.vnc/xshutdown
+```
+
+Pega el siguiente script de apagado limpio:
 
 ```bash
 #!/data/data/com.termux/files/usr/bin/sh
 
 export TMPDIR=/data/data/com.termux/files/usr/tmp
 
-# 1. Terminar procesos gráficos y de servidor
+# 1. Terminar procesos gráficos, servidor VirGL y VNC
 kquitapp5 plasmashell 2>/dev/null
 killall startplasma-x11 2>/dev/null
 pkill virgl_test
@@ -362,39 +355,52 @@ rm -rf $TMPDIR/dbus-*
 rm -rf $TMPDIR/pulse-*
 ```
 
-3.  Otorga permisos de ejecución:
-    ```bash
-    chmod +x ~/.vnc/xshutdown
-    ```
+Asigna permisos de ejecución:
+```bash
+chmod +x ~/.vnc/xshutdown
+```
 
-> **Para apagar el entorno de forma segura:** Primero ejecuta tu script `~/.vnc/xshutdown` y luego cierra el puerto del servidor VNC ejecutando `vncserver -kill :1`.
 ---
 
-## 🕹️ Primeros pasos dentro de tu nueva Estación de Desarrollo
+## 🕹️ Flujo Diario de Trabajo y Verificación de Rendimiento GPU
 
-Una vez conectado vía VNC y viendo el escritorio KDE Plasma:
+### 1. Iniciar la Estación de Trabajo
+```bash
+# Iniciar servidor VirGL (Aceleración Vulkan)
+virgl_test_server_android --angle-vulkan 2>/dev/null &
 
-1.  **Abrir una terminal gráfica:** Haz clic en el ícono de `Konsole` (la consola con forma de pantalla negra) en la barra de tareas inferior.
-2.  **Lanzar Godot Engine:** Escribe `godot` en la terminal y presiona Enter. (O búscalo en el menú de aplicaciones > Juegos).
-3.  **Lanzar VS Code:** Escribe `code-oss` en la terminal. (O búscalo en el menú > Desarrollo).
-4.  **Crear un proyecto web:** Dentro de la terminal gráfica, navega con `cd ~/storage/downloads` (para acceder a tus archivos descargados) y crea tu carpeta de trabajo.
+# Arrancar el servidor VNC (Ajusta la resolución a tu gusto)
+vncserver -geometry 1280x720 -depth 24
+```
 
-> **Consejo:** Si quieres editar archivos directamente desde el explorador de archivos de KDE (Dolphin), haz clic derecho sobre un archivo `.txt` o `.js` y selecciona "Abrir con > Code-OSS".
+Conéctate con tu cliente VNC en Android a `127.0.0.1:5901`.
+
+### 2. Verificar Aceleración Gráfica por Hardware
+Abre `Konsole` dentro de KDE Plasma y ejecuta:
+
+```bash
+glxinfo | grep -E "OpenGL vendor|OpenGL renderer|OpenGL version"
+glxgears
+```
+
+### 3. Apagado Seguro del Sistema
+```bash
+~/.vnc/xshutdown
+vncserver -kill :1
+```
 
 ---
 
 ## 🤝 Créditos y Contribuciones
 
-Este proyecto fue creado a base de prueba, error y mucha investigación. 
-Si esta guía te ha sido útil para tu propio proyecto o repositorio, **te agradecería mucho que me menciones o dejes un enlace a este repositorio original**. 
+Este proyecto fue desarrollado mediante pruebas intensivas de optimización en arquitectura ARM / Termux.
 
-¡Las contribuciones, sugerencias y mejoras son totalmente bienvenidas! Si descubres alguna actualización en los repositorios, no dudes en abrir un *Issue* o un *Pull Request*.
+* **Script de Despliegue de n8n:** Agradecimiento a [DevCoreXOfficial/termux-n8n](https://github.com/DevCoreXOfficial/termux-n8n) por el instalador optimizado de n8n para Termux.
+* **Compilación de OpenCode para Termux:** Reconocimiento al proyecto [opencode-termux de GuySoft](https://github.com/guysoft/opencode-termux) por compilar las librerías nativas (`libopentui.so`, `libtagfix.so`) para `aarch64`.
+* **Arquitectura GPU Mali & Integración System-Wide:** Diseño de scripts de arranque/apagado, perfiles VirGL/Vulkan y optimización de memoria por el autor original del repositorio.
 
-* **Entorno base y guía:** Diseñado y probado por el autor original de este repositorio.
-* **Compilación de OpenCode para Termux:** Un reconocimiento especial al proyecto [opencode-termux de GuySoft](https://github.com/guysoft/opencode-termux) por compilar y adaptar los binarios de `opencode` y sus librerías compartidas (`libopentui.so`, `libtagfix.so`) para la arquitectura `aarch64` en Termux.
-
-¡Las contribuciones, sugerencias e Issues son totalmente bienvenidos!
+---
 
 ## 📜 Licencia
 
-Este proyecto está bajo la licencia [MIT]. Eres libre de usar, modificar y compartir esta guía, siempre y cuando se incluya la atribución correspondiente al autor original.
+Este proyecto está bajo la licencia **MIT**. Eres libre de usarlo, modificarlo y compartirlo.
