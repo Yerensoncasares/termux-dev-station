@@ -158,7 +158,7 @@ ollama pull qwen2.5-coder:1.5b
 
 ### 2. Instalación de los Binarios de OpenCode
 ```bash
-curl -L -o opencode.zip [https://github.com/guysoft/opencode-termux/releases/latest/download/opencode-1.17.9-android-aarch64.zip](https://github.com/guysoft/opencode-termux/releases/latest/download/opencode-1.17.9-android-aarch64.zip)
+curl -L -o opencode.zip 'https://github.com/guysoft/opencode-termux/releases/latest/download/opencode-1.17.9-android-aarch64.zip'
 unzip opencode.zip
 
 mkdir -p $PREFIX/libexec/opencode $PREFIX/lib
@@ -188,7 +188,7 @@ source ~/.bashrc
 Ejecuta el instalador verificado para Termux:
 
 ```bash
-curl -o termux-n8n.sh [https://raw.githubusercontent.com/DevCoreXOfficial/termux-n8n/main/termux-n8n.sh](https://raw.githubusercontent.com/DevCoreXOfficial/termux-n8n/main/termux-n8n.sh)
+curl -o termux-n8n.sh 'https://raw.githubusercontent.com/DevCoreXOfficial/termux-n8n/main/termux-n8n.sh'
 chmod +x termux-n8n.sh
 bash termux-n8n.sh
 ```
