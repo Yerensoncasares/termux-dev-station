@@ -188,9 +188,9 @@ source ~/.bashrc
 Ejecuta el instalador verificado para Termux:
 
 ```bash
-curl -o termux-n8n.sh 'https://raw.githubusercontent.com/DevCoreXOfficial/termux-n8n/main/termux-n8n.sh'
-chmod +x termux-n8n.sh
-bash termux-n8n.sh
+curl -o termux-n8n-native.sh 'https://raw.githubusercontent.com/Yerensoncasares/termux-dev-station/main/termux-n8n-native.sh'
+chmod +x termux-n8n-native.sh
+bash termux-n8n-native.sh
 ```
 
 ### 2. Rutina Agresiva de Limpieza de Almacenamiento
