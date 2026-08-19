@@ -81,7 +81,7 @@ Otorgamos permisos de almacenamiento, actualizamos espejos y ponemos al día los
 ```bash
 termux-setup-storage
 termux-change-repo
-pkg update && pkg upgrade -y
+pkg update && pkg upgrade -y # o también apt full-upgrade -y si se presenta errores con dpkg
 ```
 
 ### Fase 2: Repositorios, Utilidades del Sistema y Capa de Aceleración Gráfica (VirGL)
