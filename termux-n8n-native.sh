@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/data/data/com.termux/files/usr/bin/bash
 
 # ========================================================
 # Script Name: termux-n8n-native.sh
