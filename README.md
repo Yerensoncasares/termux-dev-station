@@ -86,10 +86,14 @@ Si prefieres automatizar todo el proceso sin configurar cada fase a mano, cuenta
   * Componentes Opcionales (Suite de IA Ollama + OpenCode, Automatización n8n, Godot Engine y Herramientas Dev / VS Code / Python / Node.js).
 * **Generación Automática de Scripts:** Configura automáticamente `on.sh`, `vnc-on.sh`, `off.sh`, `ia.sh`, `up.sh` y el archivo `~/.vnc/xstartup`.
 
-### ¿Cómo ejecutarlo en un solo comando?
-Puedes descargar y ejecutar el instalador directamente desde GitHub con:
+### ¿Cómo ejecutarlo?
+Puedes descargar y ejecutar el instalador directamente desde GitHub:
 ```bash
-curl -O https://raw.githubusercontent.com/Yerensoncasares/termux-dev-station/main/install.sh && bash install.sh
+curl -O https://raw.githubusercontent.com/Yerensoncasares/termux-dev-station/main/install.sh
+# Revisa el código si lo deseas:
+nano install.sh
+# Ejecútalo:
+bash install.sh
 ```
 
 ---
@@ -97,11 +101,11 @@ curl -O https://raw.githubusercontent.com/Yerensoncasares/termux-dev-station/mai
 ## 🛠️ Guía de Instalación Paso a Paso (Manual)
 
 ### Fase 1: Preparación del Sistema Base
-Otorgamos permisos de almacenamiento, actualizamos espejos y ponemos al día los paquetes del sistema:
+Otorgamos permisos de almacenamiento, actualizamos espejos (opcional si deseas cambiar de servidor) y ponemos al día los paquetes del sistema:
 
 ```bash
 termux-setup-storage
-termux-change-repo
+# termux-change-repo  # (Opcional: ejecuta esto si deseas cambiar los espejos de repositorios)
 apt list --upgradable
 apt full-upgrade -y
 pkg update && pkg upgrade -y
@@ -143,12 +147,13 @@ Mantendremos herramientas locales de IA y te recomendaremos el mejor estándar e
 
 2. **Binarios de OpenCode:**
    ```bash
-   curl -L -o opencode.zip 'https://github.com/guysoft/opencode-termux/releases/latest/download/opencode-1.17.9-android-aarch64.zip'
+   LATEST_OPCODE=$(curl -s https://api.github.com/repos/guysoft/opencode-termux/releases/latest | grep "browser_download_url.*aarch64.zip" | cut -d '"' -f 4)
+   curl -L -o opencode.zip "$LATEST_OPCODE"
    unzip opencode.zip
    mkdir -p $PREFIX/libexec/opencode $PREFIX/lib
    mv opencode $PREFIX/bin/opencode && chmod +x $PREFIX/bin/opencode
    mv opencode.bin $PREFIX/libexec/opencode/opencode.bin && chmod +x $PREFIX/libexec/opencode/opencode.bin
-   mv libtagfix.so libc++_shared.so libopentui.so $PREFIX/lib/
+   mv libtagfix.so libc++_shared.so libopentui.so $PREFIX/lib/ 2>/dev/null || true
    ```
 
 3. **Configuración de Variables (`~/.bashrc`):**
@@ -186,7 +191,7 @@ Instalamos tanto el entorno gráfico que prefieras (Plasma o XFCE), los servidor
 
 ```bash
 # Elige tu escritorio (ej. plasma o xfce4):
-# pkg install plasma konsole dolphin htop -y   # (Para KDE Plasma)
+pkg install plasma konsole dolphin htop -y   # (Para KDE Plasma)
 pkg install xfce4 xfce4-goodies thunar htop -y # (Para XFCE)
 
 # Servidores gráficos y utilidades
@@ -194,7 +199,7 @@ pkg install tigervnc android-tools -y
 pkg install termux-x11-nightly -y  # Servidor X11 nativo integrado
 
 # Multimedia, desarrollo y utilidades
-pkg install pulseaudio firefox godot python nodejs code-oss code-is-code-oss -y
+pkg install pulseaudio firefox godot4 python nodejs code-oss code-is-code-oss -y
 ```
 
 ### Fase 6: Solución al Bloqueo de Procesos Fantasma (Android 12+)
@@ -263,7 +268,6 @@ export LANGUAGE=es_ES.UTF-8
 export LC_ALL=C.UTF-8
 export TMPDIR=/data/data/com.termux/files/usr/tmp
 export XDG_RUNTIME_DIR=${TMPDIR}
-export QT_QPA_PLATFORM=xcb
 
 rm -rf $TMPDIR/.X11-unix/X*
 rm -rf $TMPDIR/dbus-*
