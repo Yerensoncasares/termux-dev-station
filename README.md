@@ -80,7 +80,7 @@ Otorgamos permisos de almacenamiento, actualizamos espejos (opcional si deseas c
 
 ```bash
 termux-setup-storage
-# termux-change-repo  # (Opcional: ejecuta esto si deseas cambiar los espejos de repositorios)
+termux-change-repo  # (Opcional: ejecuta esto si deseas cambiar los espejos de repositorios)
 apt list --upgradable
 apt full-upgrade -y
 pkg update && pkg upgrade -y
