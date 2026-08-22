@@ -73,31 +73,6 @@ Para evitar incompatibilidades con paquetes universales pesados, te recomendamos
 
 ---
 
-## ⚡ Método Rápido e Interactivo (Instalador Automático `install.sh`)
-
-Si prefieres automatizar todo el proceso sin configurar cada fase a mano, cuentas con nuestro **script instalador interactivo, modular y con control de errores**
-
-### Características del Instalador Automático:
-* **Verificación de Seguridad y Entorno:** Valida estrictamente que estés ejecutando en Termux y verifica el espacio libre en almacenamiento.
-* **Manejo de Errores:** Control estricto con `set -e`, `set -u` y `trap` para abortar de forma limpia si ocurre algún fallo.
-* **Menú Interactivo Modular:** Te permite elegir de forma guiada:
-  * Entorno de Escritorio (KDE Plasma, XFCE o Ninguno).
-  * Servidor Gráfico (TigerVNC, Termux-X11 o Ambos).
-  * Componentes Opcionales (Suite de IA Ollama + OpenCode, Automatización n8n, Godot Engine y Herramientas Dev / VS Code / Python / Node.js).
-* **Generación Automática de Scripts:** Configura automáticamente `on.sh`, `vnc-on.sh`, `off.sh`, `ia.sh`, `up.sh` y el archivo `~/.vnc/xstartup`.
-
-### ¿Cómo ejecutarlo?
-Puedes descargar y ejecutar el instalador directamente desde GitHub:
-```bash
-curl -O https://raw.githubusercontent.com/Yerensoncasares/termux-dev-station/main/install.sh
-# Revisa el código si lo deseas:
-nano install.sh
-# Ejecútalo:
-bash install.sh
-```
-
----
-
 ## 🛠️ Guía de Instalación Paso a Paso (Manual)
 
 ### Fase 1: Preparación del Sistema Base
