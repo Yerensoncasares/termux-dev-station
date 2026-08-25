@@ -16,6 +16,14 @@
 ![OpenRouter](https://img.shields.io/badge/OpenRouter-652B19?style=for-the-badge&logo=openai&logoColor=white)
 ![Open Source](https://img.shields.io/badge/Open_Source-Success?style=for-the-badge)
 
+<div align="center">
+
+🌐 **Idiomas disponibles / Available Languages:**
+
+[🇪🇸 Español](README.md) | [🇺🇸 English](README_EN.md) | [🇨🇳 中文](README_ZH.md) | [🇧🇷 Português](README_PT.md)
+
+</div>
+
 ¡Bienvenido! Si alguna vez has querido transformar tu dispositivo Android (en modo DeX, conectado a un monitor externo o directamente en tu tablet/móvil) en una auténtica computadora de desarrollo sin necesidad de root, pesadas capas de emulación, ni scripts mágicos y oscuros, estás en el lugar correcto.
 
 Esta guía rompe con el mito de que necesitas instalar sistemas operativos enteros para programar de verdad en un teléfono. Aquí combinamos **rendimiento nativo, editores ligeros y aceleración gráfica directa** para construir un entorno 100% estable. 
@@ -56,6 +64,23 @@ Así es como luce tu estación de trabajo una vez completado el proceso y aplica
 
 ---
 
+## 📍 Índice de Contenidos
+
+1. [⚡ Arquitectura Híbrida de Aceleración (VirGL + Vulkan + ANGLE)](#-arquitectura-híbrida-de-aceleración-virgl--vulkan--angle)
+2. [📋 Entorno y Servidor Gráfico](#-entorno-y-servidor-gráfico)
+3. [🚀 Paso Previo: Preparando Termux](#-paso-previo-preparando-termux)
+4. [🛠️ Guía de Instalación Paso a Paso (Manual)](#️-guía-de-instalación-paso-a-paso-manual)
+   * [Fase 1: Preparación del Sistema Base](#fase-1-preparación-del-sistema-base)
+   * [Fase 2: Repositorios, Utilidades del Sistema y Capa de Aceleración Gráfica (VirGL)](#fase-2-repositorios-utilidades-del-sistema-y-capa-de-aceleración-gráfica-virgl)
+   * [Fase 3: Asistentes de Inteligencia Artificial (Ollama + OpenCode + API Gemini)](#fase-3-asistentes-de-inteligencia-artificial-ollama--opencode--api-gemini)
+   * [Fase 4: Despliegue de n8n y Limpieza Inteligente de Espacio](#fase-4-despliegue-de-n8n-y-limpieza-inteligente-de-espacio)
+   * [Fase 5: Instalación del Escritorio XFCE, Servidores Gráficos y Herramientas](#fase-5-instalación-del-escritorio-xfce-servidores-gráficos-y-herramientas)
+   * [Fase 6: Solución al Bloqueo de Procesos Fantasma (Android 12+)](#fase-6-solución-al-bloqueo-de-procesos-fantasma-android-12)
+   * [Fase 7: Configuración de Arranque (`xstartup` para VNC)](#fase-7-configuración-de-arranque-xstartup-para-vnc)
+5. [🕹️ Scripts de Automatización (`up`, `on`, `vnc-on`, `off`)](#️-scripts-de-automatización-up-on-vnc-on-off)
+6. [📜 Licencia](#-licencia)
+---
+   
 ## ⚡ Arquitectura Híbrida de Aceleración (VirGL + Vulkan + ANGLE)
 
 A diferencia de la mayoría de guías limitadas a procesadores Snapdragon (Adreno), esta configuración habilita la **aceleración gráfica por GPU real en procesadores con GPU Mali** (MediaTek, Exynos, etc.) mediante una cadena de traducción nativa. 
