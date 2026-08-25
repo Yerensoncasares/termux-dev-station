@@ -129,19 +129,19 @@ Mantendremos herramientas locales de IA y te recomendaremos el mejor estándar e
    ```
 
 2. **Binarios de OpenCode:**
-   ```bash
-   # Obtener la URL de descarga directa de la última versión
-   LATEST_OPCODE=$(curl -s [https://api.github.com/repos/Haris131/opencode-termux/releases/latest](https://api.github.com/repos/Haris131/opencode-termux/releases/latest) | grep "browser_download_url" | grep "aarch64.zip" | cut -d '"' -f 4)
-   
-   # Descargar, descomprimir e instalar
-   curl -L -o opencode.zip "$LATEST_OPCODE"
-   unzip opencode.zip
-   chmod +x opencode
-   mv opencode $PREFIX/bin/
-   
-   # Limpieza
-   rm opencode.zip
-   ```
+```bash
+# 1. Obtener la URL de descarga limpia
+LATEST_OPCODE=$(curl -s "[https://api.github.com/repos/Haris131/opencode-termux/releases/latest](https://api.github.com/repos/Haris131/opencode-termux/releases/latest)" | grep "browser_download_url" | grep "aarch64.zip" | cut -d '"' -f 4)
+
+# 2. Descargar, dar permisos e instalar el binario en la ruta del sistema
+curl -L -o opencode.zip "$LATEST_OPCODE"
+unzip opencode.zip
+chmod +x opencode
+mv opencode $PREFIX/bin/
+
+# 3. Limpiar el archivo comprimido residual
+rm opencode.zip
+```
 
 3. **Configuración de Variables (`~/.bashrc`):**
    Puedes configurar tu archivo `~/.bashrc` con la siguiente estructura (que incluye bienvenida con `figlet` y `neofetch`, variables de entorno y soporte de IA local/cloud):
