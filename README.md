@@ -106,7 +106,7 @@ pkg install virglrenderer virglrenderer-android angle-android vulkan-loader-gene
 pkg remove '*icd-swrast' 2>/dev/null
 
 # 2. Instalar el wrapper de Vulkan para Mesa
-wget [https://github.com/ar37-rs/virgl-angle/releases/download/latest/mesa-vulkan-icd-wrapper_25.0.0-1_aarch64.deb](https://github.com/ar37-rs/virgl-angle/releases/download/latest/mesa-vulkan-icd-wrapper_25.0.0-1_aarch64.deb)
+wget 'https://github.com/ar37-rs/virgl-angle/releases/download/latest/mesa-vulkan-icd-wrapper_25.0.0-1_aarch64.deb'
 dpkg -i mesa-vulkan-icd-wrapper_25.0.0-1_aarch64.deb
 rm mesa-vulkan-icd-wrapper_25.0.0-1_aarch64.deb
 
