@@ -147,6 +147,11 @@ rm opencode.zip
    Puedes configurar tu archivo `~/.bashrc` con la siguiente estructura (que incluye bienvenida con `figlet` y `neofetch`, variables de entorno y soporte de IA local/cloud):
   ```bash
 cat << 'EOF' >> ~/.bashrc
+# Configuración de Idioma / Localización (Español UTF-8)
+export LANG=es_ES.UTF-8
+export LANGUAGE=es_ES.UTF-8
+export LC_ALL=es_ES.UTF-8
+
 # Alias para habilitar la GPU bajo demanda en apps pesadas (ej: gpu godot4)
 alias gpu='env -u LIBGL_ALWAYS_SOFTWARE GALLIUM_DRIVER=virpipe MESA_GL_VERSION_OVERRIDE=4.1COMPAT MESA_GLSL_VERSION_OVERRIDE=410'
 
