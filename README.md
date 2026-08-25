@@ -130,13 +130,17 @@ Mantendremos herramientas locales de IA y te recomendaremos el mejor estándar e
 
 2. **Binarios de OpenCode:**
    ```bash
-   LATEST_OPCODE=$(curl -s https://api.github.com/repos/guysoft/opencode-termux/releases/latest | grep "browser_download_url.*aarch64.zip" | cut -d '"' -f 4)
+   # Obtener la URL de descarga directa de la última versión
+   LATEST_OPCODE=$(curl -s [https://api.github.com/repos/Haris131/opencode-termux/releases/latest](https://api.github.com/repos/Haris131/opencode-termux/releases/latest) | grep "browser_download_url" | grep "aarch64.zip" | cut -d '"' -f 4)
+   
+   # Descargar, descomprimir e instalar
    curl -L -o opencode.zip "$LATEST_OPCODE"
    unzip opencode.zip
-   mkdir -p $PREFIX/libexec/opencode $PREFIX/lib
-   mv opencode $PREFIX/bin/opencode && chmod +x $PREFIX/bin/opencode
-   mv opencode.bin $PREFIX/libexec/opencode/opencode.bin && chmod +x $PREFIX/libexec/opencode/opencode.bin
-   mv libtagfix.so libc++_shared.so libopentui.so $PREFIX/lib/ 2>/dev/null || true
+   chmod +x opencode
+   mv opencode $PREFIX/bin/
+   
+   # Limpieza
+   rm opencode.zip
    ```
 
 3. **Configuración de Variables (`~/.bashrc`):**
