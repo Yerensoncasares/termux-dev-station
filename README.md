@@ -92,7 +92,6 @@ termux-setup-storage
 termux-change-repo  # (Opcional: ejecuta esto si deseas cambiar los espejos de repositorios)
 apt list --upgradable
 apt full-upgrade -y
-pkg update && pkg upgrade -y
 ```
 
 ### Fase 2: Repositorios, Utilidades del Sistema y Capa de Aceleración Gráfica (VirGL)
