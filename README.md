@@ -163,7 +163,7 @@ Mantendremos herramientas locales de IA y te recomendaremos el mejor estándar e
 2. **Binarios de OpenCode:**
 ```bash
 # 1. Obtener la URL de descarga limpia
-LATEST_OPCODE=$(curl -s "[https://api.github.com/repos/Haris131/opencode-termux/releases/latest](https://api.github.com/repos/Haris131/opencode-termux/releases/latest)" | grep "browser_download_url" | grep "aarch64.zip" | cut -d '"' -f 4)
+LATEST_OPCODE=$(curl -s "https://api.github.com/repos/Haris131/opencode-termux/releases/latest" | grep "browser_download_url" | grep "aarch64.zip" | cut -d '"' -f 4)
 
 # 2. Descargar, dar permisos e instalar el binario en la ruta del sistema
 curl -L -o opencode.zip "$LATEST_OPCODE"
