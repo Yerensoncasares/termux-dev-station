@@ -146,13 +146,14 @@ cat << 'EOF' >> ~/.bashrc
 # Alias para habilitar la GPU bajo demanda en apps pesadas (ej: gpu godot4)
 alias gpu='env -u LIBGL_ALWAYS_SOFTWARE GALLIUM_DRIVER=virpipe MESA_GL_VERSION_OVERRIDE=4.1COMPAT MESA_GLSL_VERSION_OVERRIDE=410'
 
-# Variables de Entorno de IA
+# Variables de Entorno de IA (Ollama, Gemini, OpenRouter)
 export OPENAI_API_KEY="ollama"
 export OPENAI_API_BASE="http://localhost:11434/v1"
 export GEMINI_API_KEY="tu-api-key-de-gemini-aqui"
+export OPENROUTER_API_KEY="tu-api-key-de-openrouter-aqui"
 
 clear
-echo 'Termux Dev Station' | figlet 2>/dev/null || echo 'Termux Dev Station'
+echo 'Systemic Flow Dev Station' | figlet 2>/dev/null || echo 'Termux Dev Station'
 neofetch 2>/dev/null || true
 EOF
 source ~/.bashrc
@@ -206,37 +207,30 @@ Si decides usar VNC, configura tu archivo de inicio `~/.vnc/xstartup`:
    vncserver && vncserver -kill :1
    ```
 2. Edita `~/.vnc/xstartup`:
-   ```bash
-   nano ~/.vnc/xstartup
-   ```
-   
-* **Plantilla para XFCE (`~/.vnc/xstartup`):**
 ```bash
+cat << 'EOF' > ~/.vnc/xstartup
 #!/data/data/com.termux/files/usr/bin/sh
+
 localhost="no"
-export GALLIUM_DRIVER=virpipe
-export MESA_GL_VERSION_OVERRIDE=4.0
+
+# Forzar renderizado por software para el entorno XFCE (máxima estabilidad)
+export LIBGL_ALWAYS_SOFTWARE=1
+export GALLIUM_DRIVER=llvmpipe
+
 xset s off &
 xset -dpms &
+
+# Localización y variables temporales
 export LANG=es_ES.UTF-8
 export LANGUAGE=es_ES.UTF-8
 export LC_ALL=C.UTF-8
 export TMPDIR=/data/data/com.termux/files/usr/tmp
 export XDG_RUNTIME_DIR=${TMPDIR}
 
-rm -rf $TMPDIR/.X11-unix/X*
-rm -rf $TMPDIR/dbus-*
-rm -rf $TMPDIR/pulse-*
-rm -rf $HOME/.cache/sessions/*
-rm -rf $HOME/.cache/xfce4*
-
-pulseaudio --start --exit-idle-time=-1 2>/dev/null
-[ -r $HOME/.Xresources ] && xrdb$HOME/.Xresources
+# Cargar recursos y lanzar sesión XFCE
+[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
 dbus-launch --exit-with-session startxfce4
-```
-
-No olvides otorgarle permisos de ejecución:
-```bash
+EOF
 chmod +x ~/.vnc/xstartup
 ```
 
