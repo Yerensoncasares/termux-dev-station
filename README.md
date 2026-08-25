@@ -309,11 +309,25 @@ Inicia el servidor gráfico VirGL, el servicio de audio PulseAudio y el servidor
 ```bash
 cat << 'EOF' > $PREFIX/bin/vnc-on
 #!/data/data/com.termux/files/usr/bin/bash
+
 termux-wake-lock
-virgl_test_server_android 2>/dev/null &
+export TMPDIR=/data/data/com.termux/files/usr/tmp
+
+# 1. Limpieza extrema previa (evita el error "A VNC server is already running as :1")
+vncserver -kill :1 >/dev/null 2>&1
+rm -rf "$TMPDIR"/.X11-unix/X1 "$TMPDIR"/dbus-* "$TMPDIR"/pulse-* "$HOME"/.vnc/*.pid "$HOME"/.vnc/*.log
+
+# 2. Levantar servidor gráfico en modo Vulkan (Coherencia con X11)
+vgl q 2>/dev/null
+vgl angle=vulkan &
+sleep 2
+
+# 3. Audio
 pulseaudio --start --exit-idle-time=-1 2>/dev/null
-vncserver :1 -geometry 1280x720 -depth 24
-echo -e "\n[✓] Servidor VNC iniciado. Conéctate con tu visor VNC en: 127.0.0.1:5901"
+
+# 4. Iniciar VNC
+vncserver :1 -geometry 1280x720 -depth 24 -localhost no
+echo -e "\n[✓] Servidor VNC iniciado. Conéctate con tu visor en: 127.0.0.1:5901"
 EOF
 chmod +x $PREFIX/bin/vnc-on
 ```
@@ -325,24 +339,30 @@ cat << 'EOF' > $PREFIX/bin/off
 #!/data/data/com.termux/files/usr/bin/bash
 
 termux-wake-unlock
-
 export TMPDIR=/data/data/com.termux/files/usr/tmp
 
-# 1. Terminar procesos gráficos y servidores
-killall xfce4-session startxfce4 xfwm4 xfdesktop xfce4-panel 2>/dev/null
-pkill virgl_test
-pkill termux-x11
-pkill Xvnc
-vncserver -kill :1 2>/dev/null || true
+echo "Apagando estación de desarrollo..."
 
-# 2. Detener D-Bus y PulseAudio
-killall dbus-daemon 2>/dev/null
+# 1. Matar entorno XFCE sin piedad
+killall -9 xfce4-session startxfce4 xfwm4 xfdesktop xfce4-panel 2>/dev/null
+
+# 2. Detener Servidores Gráficos (VNC, X11 y Vulkan)
+vncserver -kill :1 >/dev/null 2>&1
+pkill -9 Xvnc 2>/dev/null
+am force-stop com.termux.x11 2>/dev/null
+pkill -9 -f termux-x11 2>/dev/null
+vgl q 2>/dev/null
+pkill -9 -f virgl 2>/dev/null
+
+# 3. Detener D-Bus y Audio
+killall -9 dbus-daemon 2>/dev/null
 pulseaudio --kill 2>/dev/null
 
-# 3. Limpieza de sockets temporales
-rm -rf $TMPDIR/.X11-unix/X*
-rm -rf $TMPDIR/dbus-*
-rm -rf $TMPDIR/pulse-*
+# 4. Limpieza profunda de temporales y basura acumulada
+rm -rf "$TMPDIR"/.X11-unix/X* "$TMPDIR"/dbus-* "$TMPDIR"/pulse-* 
+rm -rf "$HOME"/.vnc/*.pid "$HOME"/.vnc/*.log "$HOME"/.cache/sessions/*
+
+echo "[✓] Todo apagado y limpio. Memoria liberada."
 EOF
 chmod +x $PREFIX/bin/off
 ```
