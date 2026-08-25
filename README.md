@@ -1,34 +1,39 @@
-# 📱 Termux-Dev-Station: Tu Estación de Desarrollo Definitiva en Android
+# 📱 Termux-Dev-Station: La Estación de Desarrollo Nativa Definitiva en Android
+**Un proyecto de Systemic Flow**
 
 ![Termux](https://img.shields.io/badge/Termux-000000?style=for-the-badge&logo=termux&logoColor=white)
-![KDE Plasma](https://img.shields.io/badge/KDE_Plasma-1D99F3?style=for-the-badge&logo=kde&logoColor=white)
 ![XFCE](https://img.shields.io/badge/XFCE-CC0000?style=for-the-badge&logo=xfce&logoColor=white)
 ![Godot Engine](https://img.shields.io/badge/Godot_Engine-478CBF?style=for-the-badge&logo=godot-engine&logoColor=white)
+![Vanilla Web](https://img.shields.io/badge/Vanilla_Web-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![Ollama](https://img.shields.io/badge/Ollama-000000?style=for-the-badge&logo=ollama&logoColor=white)
 ![n8n](https://img.shields.io/badge/n8n-FF6D5A?style=for-the-badge&logo=n8n&logoColor=white)
 ![Open Source](https://img.shields.io/badge/Open_Source-Success?style=for-the-badge)
 
-¡Bienvenido! Si alguna vez has querido transformar tu dispositivo Android (en modo DeX, conectado a un monitor externo o directamente en tu tablet/móvil) en una auténtica computadora de desarrollo sin necesidad de root ni scripts mágicos y oscuros, estás en el lugar correcto.
+¡Bienvenido! Si alguna vez has querido transformar tu dispositivo Android (en modo DeX, conectado a un monitor externo o directamente en tu tablet/móvil) en una auténtica computadora de desarrollo sin necesidad de root, pesadas capas de emulación, ni scripts mágicos y oscuros, estás en el lugar correcto.
 
-Esta guía combina lo mejor de dos mundos: **una explicación amigable, accesible y explicada paso a paso** para que cualquier usuario común entienda cada componente, junto con **la precisión técnica exacta**, comandos completos, configuraciones de arranque y scripts de automatización listos para usar.
+Esta guía rompe con el mito de que necesitas instalar sistemas operativos enteros para programar de verdad en un teléfono. Aquí combinamos **rendimiento nativo, editores ligeros y aceleración gráfica directa** para construir un entorno 100% estable. 
+
+La guía une lo mejor de dos mundos: **una explicación amigable, accesible y paso a paso** para que cualquier usuario comprenda qué ocurre en su dispositivo, junto con **la precisión técnica exacta**, comandos completos y scripts de automatización listos para exprimir tu hardware al máximo.
 
 ---
 
 ## 💡 Filosofía del Proyecto y Transparencia
 
-He recorrido el camino de probar guías desactualizadas y scripts automáticos que rompen el sistema operativo sin que sepas qué pasó. Esta guía **no** utiliza automatizaciones a ciegas. Cada paso está diseñado para que comprendas exactamente qué se está instalando y configurando en tu dispositivo.
+He recorrido el camino de probar guías desactualizadas, emuladores pesados y scripts automáticos que instalan distribuciones de Linux enteras (PRoot) y terminan sobrecargando el sistema operativo sin que sepas qué pasó. Esta guía es diferente: **es 100% nativa de Termux** y **no** utiliza automatizaciones a ciegas.
 
-Ya sea que estés maquetando interfaces web con **HTML, CSS y JS**, programando mecánicas en **Godot Engine**, automatizando flujos con **n8n**, o programando con la ayuda de una **IA**, entender el entorno te dará el control absoluto y la tranquilidad de que tu estación es 100% estable.
+Aquí no hay capas intermedias. Usamos el ecosistema puro de Termux para lograr el rendimiento real del hardware de tu dispositivo. Cada paso está diseñado para que comprendas exactamente qué se está instalando y configurando.
+
+Ya sea que estés maquetando interfaces web con **HTML, CSS y JS**, programando mecánicas en **Godot Engine**, automatizando flujos con **n8n**, o programando con la ayuda de una **IA**, entender tu entorno a nivel nativo te dará el control absoluto, eliminando la latencia y garantizando que tu estación sea ágil y estable.
 
 ---
 
 ## 🖼️ Vista Previa del Entorno
 
-Así es como luce tu estación de trabajo una vez completado el proceso:
+Así es como luce tu estación de trabajo una vez completado el proceso y aplicada la personalización:
 
-| Escritorio KDE Plasma | Editor de código VS Code |
+| Escritorio XFCE (Optimizado y Moderno) | Editor de código (Code OSS) |
 | :---: | :---: |
-| ![KDE Plasma](./img/kde-plasma-desktop.png) | ![VS Code](./img/vscode-bienvenida.png) |
+| ![XFCE Moderno](./img/xfce-modern-desktop.png) | ![VS Code](./img/vscode-bienvenida.png) |
 
 | Motor de videojuegos Godot | Asistente de IA con OpenCode |
 | :---: | :---: |
@@ -44,31 +49,35 @@ Así es como luce tu estación de trabajo una vez completado el proceso:
 
 ---
 
-## ⚡ Aceleración de Hardware por GPU (VirGL + Vulkan + ANGLE)
+## ⚡ Arquitectura Híbrida de Aceleración (VirGL + Vulkan + ANGLE)
 
-A diferencia de la mayoría de guías limitadas a procesadores Qualcomm Adreno, esta configuración habilita la **aceleración gráfica por GPU real en procesadores con GPU Mali** (MediaTek, Exynos, etc.). 
+A diferencia de la mayoría de guías limitadas a procesadores Snapdragon (Adreno), esta configuración habilita la **aceleración gráfica por GPU real en procesadores con GPU Mali** (MediaTek, Exynos, etc.) mediante una cadena de traducción nativa. 
 
-Al delegar el procesamiento visual y 3D a la GPU en lugar de forzar a la CPU, el rendimiento se dispara, la fluidez es total y tu dispositivo se mantiene fresco (~36 °C) incluso bajo tareas pesadas.
+El verdadero secreto del rendimiento de Systemic Flow radica en nuestra **arquitectura bajo demanda**: 
+1. Renderizamos el entorno de escritorio por software (CPU) para garantizar una estabilidad absoluta, eliminando de raíz las pantallas negras y los cuelgues (errores `BadMatch`).
+2. Delegamos el procesamiento 3D a la GPU de forma aislada **solo** para las aplicaciones que lo exigen (como Godot Engine o Firefox).
+
+Con este método, el rendimiento se dispara, la fluidez es total y tu dispositivo se mantiene fresco (~36 °C) incluso bajo tareas pesadas.
 
 ---
 
-## 📋 ¿Qué entorno elegir según tu dispositivo?
+## 📋 Entorno y Servidor Gráfico
 
-Antes de comenzar, es importante tomar dos decisiones clave según el espacio y los gustos que tengas:
+Para asegurar que tu dispositivo rinda al máximo sin devorar la memoria RAM, hemos optimizado las opciones:
 
-### 1. Elección de Escritorio (Desktop Environment)
-* **KDE Plasma:** Hermoso, moderno, repleto de herramientas nativas (`Dolphin`, `Konsole`). 
-  * *Requisito:* Te recomendamos tener al menos **10 GB de almacenamiento libre** y 4 GB de RAM.
-* **XFCE:** Ligero, sumamente rápido y minimalista.
-  * *Requisito:* Ideal si tienes almacenamiento ajustado o buscas exprimir cada gota de rendimiento.
+### 1. El Escritorio: XFCE4
+* **XFCE:** Ligero, sumamente rápido y minimalista. Es el estándar de esta guía. Más adelante te mostraremos cómo personalizarlo con paneles y menús para que luzca tan moderno y profesional como entornos más pesados, pero consumiendo una fracción de los recursos.
 
 ### 2. Elección del Servidor Gráfico (Display Server)
-* **Servidor VNC (TigerVNC):** Clásico y universal. Te conectas mediante cualquier aplicación visor VNC en `127.0.0.1:5901`.
-* **X11 Nativo (`termux-x11-nightly`):** Renderizado directo en pantalla mediante la app dedicada de Termux-X11 (`DISPLAY=:0`), ofreciendo menor latencia y mejor integración táctil. *¡Instalaremos ambas opciones para que elijas tu favorita!*
+* **X11 Nativo (`termux-x11-nightly`):** Renderizado directo en la pantalla del dispositivo mediante su app dedicada (`DISPLAY=:0`), ofreciendo la menor latencia posible y la mejor integración táctil. Es la opción principal recomendada.
+* **Servidor VNC (TigerVNC):** Clásico y universal. Lo mantenemos como una excelente alternativa para aquellos usuarios que necesitan trabajar en pantallas grandes y no cuentan con un proyector, puerto HDMI o modo DeX. Te permite conectarte a `127.0.0.1:5901` desde cualquier visor VNC en un monitor externo vía red local. 
+
+*¡Instalaremos ambas opciones para que tengas total flexibilidad!*
 
 ---
 
 ## 🚀 Paso Previo: Preparando Termux
+
 Para evitar incompatibilidades con paquetes universales pesados, te recomendamos descargar el APK de Termux adecuado para tu arquitectura (preferiblemente **`arm64-v8a`** desde los Releases oficiales de GitHub en lugar de F-Droid, reduciendo el tamaño base a ~30 MB).
 
 ---
@@ -87,24 +96,24 @@ pkg update && pkg upgrade -y
 ```
 
 ### Fase 2: Repositorios, Utilidades del Sistema y Capa de Aceleración Gráfica (VirGL)
-Añadimos los repositorios comunitarios esenciales (`tur-repo`, `x11-repo`), herramientas de red, utilidades del sistema imprescindibles para gestión de procesos (`procps` para `killall` y `pkill`), decoraciones de terminal (`figlet`, `neofetch`) y la capa gráfica:
+Añadimos los repositorios comunitarios esenciales (`tur-repo`, `x11-repo`), herramientas de red, utilidades del sistema imprescindibles para gestión de procesos (`procps` para `killall` y `pkill`), decoraciones de terminal (`figlet`, `neofetch`) y preparamos la capa de aceleración gráfica avanzada para procesadores Mali mediante ANGLE y Vulkan:
 
 ```bash
 pkg install tur-repo x11-repo -y
 pkg install git unzip wget curl ripgrep procps figlet neofetch -y
-pkg install virglrenderer-android angle-android mesa-demos -y
-```
+pkg install virglrenderer virglrenderer-android angle-android vulkan-loader-generic openssl -y
 
-#### Modos de arranque del Servidor VirGL:
-```bash
-# Opción 1 recomendada para GPU Mali (ANGLE + Vulkan)
-virgl_test_server_android --angle-vulkan 2>/dev/null &
+# 1. Eliminar renderizadores por software conflictivos si existieran
+pkg remove '*icd-swrast' 2>/dev/null
 
-# Opción 2 (ANGLE + OpenGL ES)
-virgl_test_server_android --angle-gl 2>/dev/null &
+# 2. Instalar el wrapper de Vulkan para Mesa
+wget [https://github.com/ar37-rs/virgl-angle/releases/download/latest/mesa-vulkan-icd-wrapper_25.0.0-1_aarch64.deb](https://github.com/ar37-rs/virgl-angle/releases/download/latest/mesa-vulkan-icd-wrapper_25.0.0-1_aarch64.deb)
+dpkg -i mesa-vulkan-icd-wrapper_25.0.0-1_aarch64.deb
+rm mesa-vulkan-icd-wrapper_25.0.0-1_aarch64.deb
 
-# Opción 3 (Modo Nativo / Fallback)
-virgl_test_server_android 2>/dev/null &
+# 3. Instalar herramienta vgl para gestionar el arranque del servidor gráfico
+wget [https://github.com/ar37-rs/virgl-angle/raw/refs/heads/main/vgl](https://github.com/ar37-rs/virgl-angle/raw/refs/heads/main/vgl)
+chmod +x vgl && mv vgl $PREFIX/bin/
 ```
 
 ### Fase 3: Asistentes de Inteligencia Artificial (Ollama + OpenCode + API Gemini)
@@ -133,18 +142,21 @@ Mantendremos herramientas locales de IA y te recomendaremos el mejor estándar e
 
 3. **Configuración de Variables (`~/.bashrc`):**
    Puedes configurar tu archivo `~/.bashrc` con la siguiente estructura (que incluye bienvenida con `figlet` y `neofetch`, variables de entorno y soporte de IA local/cloud):
-   ```bash
-   cat << 'EOF' >> ~/.bashrc
-   export OPENAI_API_KEY="ollama"
-   export OPENAI_API_BASE="http://localhost:11434/v1"
-   export GEMINI_API_KEY="tu-api-key-de-gemini-aqui"
-   export GALLIUM_DRIVER=virpipe
-   export MESA_GL_VERSION_OVERRIDE=4.0
-   clear
-   echo 'Termux Dev Station' | figlet 2>/dev/null || echo 'Termux Dev Station'
-   neofetch 2>/dev/null || true
-   EOF
-   source ~/.bashrc
+  ```bash
+cat << 'EOF' >> ~/.bashrc
+# Alias para habilitar la GPU bajo demanda en apps pesadas (ej: gpu godot4)
+alias gpu='env -u LIBGL_ALWAYS_SOFTWARE GALLIUM_DRIVER=virpipe MESA_GL_VERSION_OVERRIDE=4.1COMPAT MESA_GLSL_VERSION_OVERRIDE=410'
+
+# Variables de Entorno de IA
+export OPENAI_API_KEY="ollama"
+export OPENAI_API_BASE="http://localhost:11434/v1"
+export GEMINI_API_KEY="tu-api-key-de-gemini-aqui"
+
+clear
+echo 'Termux Dev Station' | figlet 2>/dev/null || echo 'Termux Dev Station'
+neofetch 2>/dev/null || true
+EOF
+source ~/.bashrc
    ```
 
 ### Fase 4: Despliegue de n8n y Limpieza Inteligente de Espacio
@@ -161,20 +173,19 @@ pkg clean && apt autoremove --purge
 rm -rf $PREFIX/tmp/*
 ```
 
-### Fase 5: Instalación de Entornos Gráficos, Servidores VNC y X11 (`termux-x11-nightly`)
-Instalamos tanto el entorno gráfico que prefieras (Plasma o XFCE), los servidores de visualización (**TigerVNC** y el paquete nativo **`termux-x11-nightly`**), además de audio y herramientas de desarrollo:
+### Fase 5: Instalación del Escritorio XFCE, Servidores Gráficos y Herramientas
+Instalamos el entorno gráfico XFCE4 junto a sus complementos esenciales, los servidores de visualización (`TigerVNC` y el paquete nativo `termux-x11-nightly`), además del sistema de audio y las herramientas de desarrollo nativas:
 
 ```bash
-# Elige tu escritorio (ej. plasma o xfce4):
-pkg install plasma konsole dolphin htop -y   # (Para KDE Plasma)
-pkg install xfce4 xfce4-goodies thunar htop -y # (Para XFCE)
+# Entorno XFCE ultraligero y administrador de archivos
+pkg install xfce4 xfce4-goodies thunar htop -y 
 
-# Servidores gráficos y utilidades
+# Servidores gráficos y herramientas ADB
 pkg install tigervnc android-tools -y
-pkg install termux-x11-nightly -y  # Servidor X11 nativo integrado
+pkg install termux-x11-nightly -y  # Servidor X11 nativo de alta fluidez
 
-# Multimedia, desarrollo y utilidades
-pkg install pulseaudio firefox godot4 python nodejs code-oss code-is-code-oss -y
+# Multimedia, desarrollo y editores de código nativos
+pkg install pulseaudio firefox godot4 python nodejs code-oss -y
 ```
 
 ### Fase 6: Solución al Bloqueo de Procesos Fantasma (Android 12+)
@@ -199,37 +210,7 @@ Si decides usar VNC, configura tu archivo de inicio `~/.vnc/xstartup`:
    ```bash
    nano ~/.vnc/xstartup
    ```
-
-* **Plantilla para KDE Plasma (`~/.vnc/xstartup`):**
-```bash
-#!/data/data/com.termux/files/usr/bin/sh
-localhost="no"
-export GALLIUM_DRIVER=virpipe
-export MESA_GL_VERSION_OVERRIDE=4.0
-xset s off &
-xset -dpms &
-export LANG=es_ES.UTF-8
-export LANGUAGE=es_ES.UTF-8
-export LC_ALL=C.UTF-8
-export TMPDIR=/data/data/com.termux/files/usr/tmp
-export XDG_RUNTIME_DIR=${TMPDIR}
-export QT_QPA_PLATFORM=xcb
-
-rm -rf $TMPDIR/.X11-unix/X*
-rm -rf $TMPDIR/dbus-*
-rm -rf $TMPDIR/pulse-*
-rm -rf $HOME/.cache/ico*
-rm -rf $HOME/.cache/kio*
-rm -rf $HOME/.cache/plasma*
-rm -rf $HOME/.cache/QtWebEngine
-rm -f $HOME/.config/session/*
-
-pulseaudio --start --exit-idle-time=-1 2>/dev/null
-[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
-xfwm4 --replace --compositor=off & 2>/dev/null
-dbus-launch --exit-with-session startplasma-x11
-```
-
+   
 * **Plantilla para XFCE (`~/.vnc/xstartup`):**
 ```bash
 #!/data/data/com.termux/files/usr/bin/sh
@@ -251,7 +232,7 @@ rm -rf $HOME/.cache/sessions/*
 rm -rf $HOME/.cache/xfce4*
 
 pulseaudio --start --exit-idle-time=-1 2>/dev/null
-[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
+[ -r $HOME/.Xresources ] && xrdb$HOME/.Xresources
 dbus-launch --exit-with-session startxfce4
 ```
 
@@ -262,84 +243,94 @@ chmod +x ~/.vnc/xstartup
 
 ---
 
-## 🕹️ Scripts de Automatización (`up.sh`, `on.sh`, `vnc-on.sh`, `off.sh`, `ia.sh`)
+## 🕹️ Scripts de Automatización (`up`, `on`, `vnc-on`, `off`)
 
-Para evitar tener que escribir comandos largos cada vez que enciendas o apagues tu estación, puedes crear estos scripts en tu directorio de trabajo (o en `~/`). Asegúrate de darles permisos con `chmod +x <nombre-script>.sh`.
+Para evitar tener que escribir comandos largos cada vez que enciendas o apagues tu estación, puedes crear estos scripts en tu directorio de trabajo (o en `~/`). Asegúrate de darles permisos de ejecución con `chmod +x <nombre-script>.sh`.
 
-### 1. Script de Actualización del Sistema (`up.sh`)
-Actualiza la lista de paquetes y actualiza el sistema completo de forma desatendida.
+### 1. Script de Actualización del Sistema (`up`)
+Actualiza la lista de paquetes y el sistema completo de forma desatendida.
 ```bash
+cat << 'EOF' > $PREFIX/bin/up
 #!/data/data/com.termux/files/usr/bin/bash
 apt list --upgradable
 yes | pkg update && pkg upgrade -y
+EOF
+chmod +x $PREFIX/bin/up
 ```
 
-### 2. Script de Encendido Gráfico X11 (`on.sh`)
-Inicia el bloqueo WakeLock para evitar suspensión, arranca la app de Termux-X11, activa el servidor VirGL, configura audio PulseAudio y lanza tu entorno gráfico.
+### 2. Script de Encendido Gráfico X11 Nativo (`on`)
+Inicia el bloqueo WakeLock para evitar la suspensión del sistema, limpia sockets anteriores, levanta el servidor ANGLE/Vulkan mediante `vgl`, arranca la app de Termux-X11, configura el audio de PulseAudio y lanza XFCE de forma limpia utilizando renderizado por software para máxima estabilidad.
 ```bash
+cat << 'EOF' > $PREFIX/bin/on
 #!/data/data/com.termux/files/usr/bin/bash
 
-# Anclar sesión para evitar suspensión
 termux-wake-lock
+am force-stop com.termux.x11 2>/dev/null
+pkill -9 -f termux-x11 2>/dev/null
+vgl q 2>/dev/null
+pkill -9 -f virgl 2>/dev/null
+sleep 1
 
-# Iniciar aplicación Android Termux-X11
-am start com.termux.x11/com.termux.x11.MainActivity
+TMPDIR=/data/data/com.termux/files/usr/tmp
+rm -rf "$TMPDIR"/.X11-unix/X* "$TMPDIR"/dbus-* "$TMPDIR"/pulse-* "$HOME"/.cache/sessions/*
 
-# Configuración de pantalla y servidor X11
-export DISPLAY=:0
-termux-x11 :0 &
+# Levantar servidor gráfico en modo Vulkan
+vgl angle=vulkan &
 sleep 2
 
-# Activar aceleración gráfica VirGL
-virgl_test_server_android 2>/dev/null &
+# Iniciar X11 y la app de Android
+export DISPLAY=:0
+termux-x11 :0 -ac &
+sleep 2
+am start --user 0 -n com.termux.x11/.MainActivity >/dev/null 2>&1
 
-# Configuración de localización y directorios temporales
-export LANG=es_ES.UTF-8
-export LANGUAGE=es_ES.UTF-8
-export LC_ALL=C.UTF-8
-export TMPDIR=/data/data/com.termux/files/usr/tmp
-export XDG_RUNTIME_DIR=${TMPDIR}
-export QT_QPA_PLATFORM=xcb
-
-# Limpieza previa de sockets temporales y cachés
-rm -rf $TMPDIR/.X11-unix/X*
-rm -rf $TMPDIR/dbus-*
-rm -rf $TMPDIR/pulse-*
-rm -rf $HOME/.cache/sessions/*
-rm -rf $HOME/.cache/xfce4*
-
-# Iniciar PulseAudio
+# Configuración de audio y entorno seguro
 pulseaudio --start --exit-idle-time=-1 2>/dev/null
+export LANG=es_ES.UTF-8
+export LIBGL_ALWAYS_SOFTWARE=1
+export GALLIUM_DRIVER=llvmpipe
 
-# Cargar recursos gráficos y arrancar escritorio (ej. XFCE o Plasma)
-[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
-dbus-launch --exit-with-session startxfce4
+[ -r $HOME/.Xresources ] && xrdb$HOME/.Xresources
+
+# Ejecutar componentes de XFCE por separado para evitar bucles de inicio
+dbus-run-session -- bash -c '
+  xfsettingsd &
+  sleep 1
+  xfwm4 &
+  sleep 1
+  xfdesktop &
+  xfce4-panel &
+  wait
+'
+EOF
+chmod +x $PREFIX/bin/on
 ```
-
-### 3. Script de Encendido VNC (`vnc-on.sh`)
-Inicia el servidor VirGL, PulseAudio y el servidor TigerVNC en `127.0.0.1:5901`.
+### 3. Script de Encendido VNC (`vnc-on`)
+Inicia el servidor gráfico VirGL, el servicio de audio PulseAudio y el servidor TigerVNC en `127.0.0.1:5901`.
 ```bash
+cat << 'EOF' > $PREFIX/bin/vnc-on
 #!/data/data/com.termux/files/usr/bin/bash
 termux-wake-lock
 virgl_test_server_android 2>/dev/null &
 pulseaudio --start --exit-idle-time=-1 2>/dev/null
 vncserver :1 -geometry 1280x720 -depth 24
 echo -e "\n[✓] Servidor VNC iniciado. Conéctate con tu visor VNC en: 127.0.0.1:5901"
+EOF
+chmod +x $PREFIX/bin/vnc-on
 ```
 
-### 4. Script de Apagado Limpio (`off.sh`)
+### 4. Script de Apagado Limpio (off)
 Detiene los demonios gráficos, servidores X11/VNC/VirGL, libera PulseAudio y limpia sockets temporales.
 ```bash
+cat << 'EOF' > $PREFIX/bin/off
 #!/data/data/com.termux/files/usr/bin/bash
 
 termux-wake-unlock
 
 export TMPDIR=/data/data/com.termux/files/usr/tmp
 
-# 1. Terminar procesos gráficos, servidor VirGL y X11/VNC
-killall xfce4-session startplasma-x11 2>/dev/null
-pkill xfwm4
-pkill plasmashell
+# 1. Terminar procesos gráficos y servidores
+killall xfce4-session startxfce4 xfwm4 xfdesktop xfce4-panel 2>/dev/null
 pkill virgl_test
 pkill termux-x11
 pkill Xvnc
@@ -349,17 +340,12 @@ vncserver -kill :1 2>/dev/null || true
 killall dbus-daemon 2>/dev/null
 pulseaudio --kill 2>/dev/null
 
-# 3. Limpieza de sockets temporales y archivos de bloqueo
+# 3. Limpieza de sockets temporales
 rm -rf $TMPDIR/.X11-unix/X*
 rm -rf $TMPDIR/dbus-*
 rm -rf $TMPDIR/pulse-*
-```
-
-### 5. Script de Inteligencia Artificial / OpenCode (`ia.sh`)
-Inicia el servidor Ollama en segundo plano y abre la interfaz de OpenCode inmediatamente.
-```bash
-#!/data/data/com.termux/files/usr/bin/bash
-ollama serve > /dev/null 2>&1 & clear && opencode
+EOF
+chmod +x $PREFIX/bin/off
 ```
 
 > **Nota:** Para crear y activar cualquiera de estos scripts manualmente, puedes crearlos con `nano <nombre>.sh`, pegar el contenido, guardarlo y ejecutar:
