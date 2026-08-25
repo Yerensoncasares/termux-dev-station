@@ -111,7 +111,7 @@ dpkg -i mesa-vulkan-icd-wrapper_25.0.0-1_aarch64.deb
 rm mesa-vulkan-icd-wrapper_25.0.0-1_aarch64.deb
 
 # 3. Instalar herramienta vgl para gestionar el arranque del servidor gráfico
-wget [https://github.com/ar37-rs/virgl-angle/raw/refs/heads/main/vgl](https://github.com/ar37-rs/virgl-angle/raw/refs/heads/main/vgl)
+wget 'https://github.com/ar37-rs/virgl-angle/raw/refs/heads/main/vgl'
 chmod +x vgl && mv vgl $PREFIX/bin/
 ```
 
