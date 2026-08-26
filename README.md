@@ -77,6 +77,8 @@ Así es como luce tu estación de trabajo una vez completado el proceso y aplica
    * [Fase 5: Instalación del Escritorio XFCE, Servidores Gráficos y Herramientas](#fase-5-instalación-del-escritorio-xfce-servidores-gráficos-y-herramientas)
    * [Fase 6: Solución al Bloqueo de Procesos Fantasma (Android 12+)](#fase-6-solución-al-bloqueo-de-procesos-fantasma-android-12)
    * [Fase 7: Configuración de Arranque (`xstartup` para VNC)](#fase-7-configuración-de-arranque-xstartup-para-vnc)
+   * [Fase 8: Personalización Visual y Estética (Systemic Flow)](#fase-8-personalización-visual-y-estética-systemic-flow)
+   * [Fase 9: Habilitar Aceleración GPU en Lanzadores (Opcional)](#fase-9-habilitar-aceleración-gpu-en-lanzadores-opcional)
 5. [🕹️ Scripts de Automatización (`up`, `on`, `vnc-on`, `off`)](#️-scripts-de-automatización-up-on-vnc-on-off)
 6. [📜 Licencia](#-licencia)
 ---
@@ -274,6 +276,55 @@ dbus-launch --exit-with-session startxfce4
 EOF
 chmod +x ~/.vnc/xstartup
 ```
+
+---
+
+### Fase 8: Personalización Visual y Estética (Systemic Flow)
+Para que tu entorno luzca moderno y minimalista, instalaremos los temas de interfaz, la línea de comandos interactiva y los iconos.
+
+Ejecuta el siguiente bloque para instalar `starship` (con el preset Tokyo Night), `lsd` y descargar el paquete completo de recursos (*assets*) de Systemic Flow (fuentes, temas GTK y cursores) directamente desde nuestro release oficial:
+
+```bash
+# 1. Instalación de temas oficiales y utilidades de terminal
+pkg install arc-gtk-theme papirus-icon-theme starship lsd -y
+
+# 2. Configuración del prompt Starship (Preset Tokyo Night)
+mkdir -p ~/.config
+starship preset tokyo-night -o ~/.config/starship.toml
+
+# 3. Limpieza e instalación del paquete de assets visuales
+rm -rf ~/.fonts ~/.themes ~/.icons ~/assets.zip
+curl -L -o ~/assets.zip "[https://github.com/Yerensoncasares/termux-dev-station/releases/download/V1.0/assets.zip](https://github.com/Yerensoncasares/termux-dev-station/releases/download/V1.0/assets.zip)"
+unzip -o ~/assets.zip -d ~/
+rm ~/assets.zip
+fc-cache -fv
+
+# 4. Inyección limpia de alias y Starship en ~/.bashrc
+grep -q 'starship init bash' ~/.bashrc || echo 'eval "$(starship init bash)"' >> ~/.bashrc
+grep -q 'alias ls="lsd"' ~/.bashrc || echo 'alias ls="lsd"' >> ~/.bashrc
+
+# 5. Aplicar cambios en la sesión actual
+source ~/.bashrc
+```
+
+ ---
+ 
+ ### Fase 9: Habilitar Aceleración GPU en Lanzadores (Opcional)
+Nuestra arquitectura renderiza la interfaz por software para máxima estabilidad, pero puedes habilitar la GPU bajo demanda para aplicaciones pesadas (como **Code-OSS**, **Godot Engine** o **Firefox**) sin necesidad de usar la terminal.
+
+Para abrirlos directamente desde el Menú Whisker o el Panel inferior con aceleración por hardware:
+
+1. Haz clic derecho sobre la aplicación en el Menú Whisker o en el Panel y selecciona **Editar aplicación** (o *Propiedades*).
+2. En la casilla **Comando**, antepone el siguiente prefijo de GPU antes de la ruta del programa:
+
+`env -u LIBGL_ALWAYS_SOFTWARE GALLIUM_DRIVER=virpipe MESA_GL_VERSION_OVERRIDE=4.1COMPAT MESA_GLSL_VERSION_OVERRIDE=410`
+
+**Ejemplos de cómo debe quedar la línea completa:**
+* **Code-OSS:** `env -u LIBGL_ALWAYS_SOFTWARE GALLIUM_DRIVER=virpipe MESA_GL_VERSION_OVERRIDE=4.1COMPAT MESA_GLSL_VERSION_OVERRIDE=410 /data/data/com.termux/files/usr/bin/code-oss %F`
+* **Godot Engine:** `env -u LIBGL_ALWAYS_SOFTWARE GALLIUM_DRIVER=virpipe MESA_GL_VERSION_OVERRIDE=4.1COMPAT MESA_GLSL_VERSION_OVERRIDE=410 godot %u`
+
+> **Nota:** No es necesario (ni recomendable) aplicar este ajuste a herramientas ligeras del sistema como el administrador de archivos o el gestor de tareas.
+>
 
 ---
 
