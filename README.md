@@ -44,7 +44,7 @@ Ya sea que estés maquetando interfaces web con **HTML, CSS y JS**, programando 
 
 ## 🖼️ Vista Previa del Entorno
 
-Así es como luce tu estación de trabajo una vez completado el proceso y aplicada la personalización:
+Así es como luce tu estación de trabajo una vez completado el proceso y aplicada la personalización de Systemic Flow:
 
 | Escritorio XFCE (Optimizado y Moderno) | Editor de código (Code OSS) |
 | :---: | :---: |
@@ -54,13 +54,9 @@ Así es como luce tu estación de trabajo una vez completado el proceso y aplica
 | :---: | :---: |
 | ![Godot](./img/godot-project-manager.png) | ![OpenCode](./img/opencode-asistente.png) |
 
-| Automatización con n8n | Rendimiento GPU (VirGL / glxgears) |
+| Automatización con n8n | Navegación Web (Firefox) |
 | :---: | :---: |
-| ![n8n](./img/n8n-dashboard.png) | ![GPU Benchmark](./img/gpu-virgl-benchmark.png) |
-
-| Navegación web con Firefox | Monitor del Sistema (htop) |
-| :---: | :---: |
-| ![Firefox](./img/firefox-navegacion.png) | ![htop](./img/htop-terminal.png) |
+| ![n8n](./img/n8n-dashboard.png) | ![Firefox](./img/firefox-navegacion.png) |
 
 ---
 
