@@ -286,7 +286,7 @@ Ejecuta el siguiente bloque para instalar `starship` (con el preset Tokyo Night)
 
 ```bash
 # 1. Instalación de temas oficiales y utilidades de terminal
-pkg install arc-gtk-theme papirus-icon-theme starship lsd -y
+pkg install arc-gtk-theme papirus-icon-theme starship lsd fontconfig-utils -y
 
 # 2. Configuración del prompt Starship (Preset Tokyo Night)
 mkdir -p ~/.config
@@ -294,7 +294,7 @@ starship preset tokyo-night -o ~/.config/starship.toml
 
 # 3. Limpieza e instalación del paquete de assets visuales
 rm -rf ~/.fonts ~/.themes ~/.icons ~/assets.zip
-curl -L -o ~/assets.zip "[https://github.com/Yerensoncasares/termux-dev-station/releases/download/V1.0/assets.zip](https://github.com/Yerensoncasares/termux-dev-station/releases/download/V1.0/assets.zip)"
+curl -L -o ~/assets.zip "https://github.com/Yerensoncasares/termux-dev-station/releases/download/V1.0/assets.zip"
 unzip -o ~/assets.zip -d ~/
 rm ~/assets.zip
 fc-cache -fv
