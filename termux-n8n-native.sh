@@ -20,11 +20,12 @@ echo -e "${CYAN}║         n8n Native Installer for Termux (ARM64)        ║${
 echo -e "${CYAN}╚════════════════════════════════════════════════════════╝${NC}"
 echo -e "${BLUE}[INFO]${NC} Preparing local environment setup...\n"
 
-# 1. Install Base Packages (Node.js LTS, Python, and Build Tools)
-echo -e "${YELLOW}[1/4] Installing essential packages (Node.js LTS, Python, SQLite, Clang)...${NC}"
+# 1. Install Base Packages (Node.js LTS, Python, Build Tools & Media Libs)
+echo -e "${YELLOW}[1/4] Installing essential packages (Node.js LTS, Python, SQLite, Clang, libvips)...${NC}"
 yes | pkg update -y > /dev/null 2>&1
 yes | pkg upgrade -y > /dev/null 2>&1
-yes | pkg install nodejs-lts python sqlite build-essential binutils make clang -y
+# Agregamos libvips y ffmpeg para procesar imágenes/media en n8n
+yes | pkg install nodejs-lts python sqlite build-essential binutils make clang libvips ffmpeg -y
 
 if [ $? -ne 0 ]; then
 	echo -e "${RED}[ERROR] Failed to install core Termux packages. Check your network connection.${NC}"
@@ -42,16 +43,21 @@ else
 	echo -e "${GREEN}[OK] Python configuration ready.${NC}\n"
 fi
 
-# 3. Workaround for the NDK (Native Development Kit) Error on Android
-echo -e "${YELLOW}[3/4] Bypassing Android NDK path restrictions for native compilation...${NC}"
+# 3. Workaround for the NDK and Native Compilation Flags
+echo -e "${YELLOW}[3/4] Bypassing Android NDK path restrictions and setting build flags...${NC}"
 export GYP_DEFINES="android_ndk_path=''"
+# Variables extra para asegurar que sharp/n8n se compilen desde el código fuente
+export PYTHON=$(which python)
+export npm_config_build_from_source=true
+
 echo -e "   -> GYP_DEFINES set to: ${CYAN}$GYP_DEFINES${NC}"
 echo -e "${GREEN}[OK] Environment variables configured.${NC}\n"
 
 # 4. Global n8n v2 Installation (Locked to prevent Docker-enforced v3 updates)
 echo -e "${YELLOW}[4/4] Installing n8n (v2 stable branch) globally via npm...${NC}"
 echo -e "${BLUE}[INFO] This process may take a few minutes depending on your hardware...${NC}"
-npm install -g n8n@2
+# Añadimos --unsafe-perm para evitar problemas de permisos durante la compilación nativa
+npm install -g n8n@2 --unsafe-perm
 
 if [ $? -eq 0 ]; then
 	echo -e "\n${CYAN}╔════════════════════════════════════════════════════════╗${NC}"
