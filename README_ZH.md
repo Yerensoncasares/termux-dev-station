@@ -329,10 +329,12 @@ vgl q 2>/dev/null
 pkill -9 -f virgl 2>/dev/null
 vgl angle=vulkan &
 sleep 2
+sync
 
 pulseaudio --start --exit-idle-time=-1 2>/dev/null
 vncserver :1 -geometry 1280x720 -depth 24 -localhost no
 echo -e "\n[✓] VNC Server started."
+renice -n -10 -p $(pgrep -f vncserver) 2>/dev/null
 EOF
 chmod +x $PREFIX/bin/vnc-on
 ```
