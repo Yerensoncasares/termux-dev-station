@@ -284,6 +284,7 @@ chmod +x $PREFIX/bin/up
 ```bash
 cat << 'EOF' > $PREFIX/bin/on
 #!/data/data/com.termux/files/usr/bin/bash
+
 termux-wake-lock
 am force-stop com.termux.x11 2>/dev/null
 pkill -9 -f termux-x11 2>/dev/null
@@ -307,7 +308,7 @@ export LANG=en_US.UTF-8
 export LIBGL_ALWAYS_SOFTWARE=1
 export GALLIUM_DRIVER=llvmpipe
 
-[ -r $HOME/.Xresources ] && xrdb$HOME/.Xresources
+[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
 
 dbus-run-session -- bash -c '
   xfsettingsd &
@@ -326,6 +327,7 @@ chmod +x $PREFIX/bin/on
 ```bash
 cat << 'EOF' > $PREFIX/bin/vnc-on
 #!/data/data/com.termux/files/usr/bin/bash
+
 termux-wake-lock
 export TMPDIR=/data/data/com.termux/files/usr/tmp
 
@@ -333,6 +335,7 @@ vncserver -kill :1 >/dev/null 2>&1
 rm -rf "$TMPDIR"/.X11-unix/X1 "$TMPDIR"/dbus-* "$TMPDIR"/pulse-* "$HOME"/.vnc/*.pid "$HOME"/.vnc/*.log
 
 vgl q 2>/dev/null
+pkill -9 -f virgl 2>/dev/null
 vgl angle=vulkan &
 sleep 2
 
