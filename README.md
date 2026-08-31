@@ -371,7 +371,7 @@ export LANG=es_ES.UTF-8
 export LIBGL_ALWAYS_SOFTWARE=1
 export GALLIUM_DRIVER=llvmpipe
 
-[ -r $HOME/.Xresources ] && xrdb$HOME/.Xresources
+[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
 
 # Ejecutar componentes de XFCE por separado para evitar bucles de inicio
 dbus-run-session -- bash -c '
@@ -399,8 +399,9 @@ export TMPDIR=/data/data/com.termux/files/usr/tmp
 vncserver -kill :1 >/dev/null 2>&1
 rm -rf "$TMPDIR"/.X11-unix/X1 "$TMPDIR"/dbus-* "$TMPDIR"/pulse-* "$HOME"/.vnc/*.pid "$HOME"/.vnc/*.log
 
-# 2. Levantar servidor gráfico en modo Vulkan (Coherencia con X11)
+# 2. Levantar servidor gráfico en modo Vulkan y limpieza profunda (Coherencia con X11)
 vgl q 2>/dev/null
+pkill -9 -f virgl 2>/dev/null
 vgl angle=vulkan &
 sleep 2
 
