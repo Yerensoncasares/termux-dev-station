@@ -1,9 +1,9 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 # ========================================================
-# Script Name: termux-n8n-native.sh
-# Description: Automated native installer for n8n (v2 locked) on Termux
-# Author: Yerenson Casares
+# Script Name: termux-nodered-native.sh
+# Description: Lightweight automated installer for Node-RED on Termux
+# Author: Yerenson Caseres (Systemic Flow)
 # ========================================================
 
 # Define ANSI Colors & Styles
@@ -16,16 +16,15 @@ NC='\033[0m' # No Color
 
 clear
 echo -e "${CYAN}╔════════════════════════════════════════════════════════╗${NC}"
-echo -e "${CYAN}║         n8n Native Installer for Termux (ARM64)        ║${NC}"
+echo -e "${CYAN}║       Node-RED Native Installer for Termux (ARM64)     ║${NC}"
 echo -e "${CYAN}╚════════════════════════════════════════════════════════╝${NC}"
 echo -e "${BLUE}[INFO]${NC} Preparing local environment setup...\n"
 
-# 1. Install Base Packages (Node.js LTS, Python, Build Tools & Media Libs)
-echo -e "${YELLOW}[1/4] Installing essential packages (Node.js LTS, Python, SQLite, Clang, libvips)...${NC}"
+# 1. Install Base Packages (Node.js LTS, Coreutils & Termux-API)
+echo -e "${YELLOW}[1/2] Installing essential packages (Node.js LTS, Termux-API)...${NC}"
 yes | pkg update -y > /dev/null 2>&1
 yes | pkg upgrade -y > /dev/null 2>&1
-# Agregamos libvips y ffmpeg para procesar imágenes/media en n8n
-yes | pkg install nodejs-lts python sqlite build-essential binutils make clang libvips ffmpeg -y
+yes | pkg install nodejs-lts coreutils nano termux-api -y
 
 if [ $? -ne 0 ]; then
 	echo -e "${RED}[ERROR] Failed to install core Termux packages. Check your network connection.${NC}"
@@ -33,42 +32,23 @@ if [ $? -ne 0 ]; then
 fi
 echo -e "${GREEN}[OK] Core packages installed successfully.${NC}\n"
 
-# 2. Python Configuration for node-gyp
-echo -e "${YELLOW}[2/4] Configuring Python build dependency (setuptools for node-gyp)...${NC}"
-pip install setuptools > /dev/null 2>&1
+# 2. Global Node-RED Installation via npm
+echo -e "${YELLOW}[2/2] Installing Node-RED globally via npm...${NC}"
+echo -e "${BLUE}[INFO] This process is fast and lightweight...${NC}"
+npm install -g --unsafe-perm node-red
 
 if [ $? -ne 0 ]; then
-	echo -e "${YELLOW}[WARNING] setuptools installation encountered an issue, but proceeding...${NC}"
-else
-	echo -e "${GREEN}[OK] Python configuration ready.${NC}\n"
-fi
-
-# 3. Workaround for the NDK and Native Compilation Flags
-echo -e "${YELLOW}[3/4] Bypassing Android NDK path restrictions and setting build flags...${NC}"
-export GYP_DEFINES="android_ndk_path=''"
-# Variables extra para asegurar que sharp/n8n se compilen desde el código fuente
-export PYTHON=$(which python)
-export npm_config_build_from_source=true
-
-echo -e "   -> GYP_DEFINES set to: ${CYAN}$GYP_DEFINES${NC}"
-echo -e "${GREEN}[OK] Environment variables configured.${NC}\n"
-
-# 4. Global n8n v2 Installation (Locked to prevent Docker-enforced v3 updates)
-echo -e "${YELLOW}[4/4] Installing n8n (v2 stable branch) globally via npm...${NC}"
-echo -e "${BLUE}[INFO] This process may take a few minutes depending on your hardware...${NC}"
-# Añadimos --unsafe-perm para evitar problemas de permisos durante la compilación nativa
-npm install -g n8n@2 --unsafe-perm
-
-if [ $? -eq 0 ]; then
-	echo -e "\n${CYAN}╔════════════════════════════════════════════════════════╗${NC}"
-	echo -e "${GREEN}║           n8n v2 Installation Successful!              ║${NC}"
-	echo -e "${CYAN}╚════════════════════════════════════════════════════════╝${NC}"
-	echo -e "To start your local instance, run the command:"
-	echo -e "   ${CYAN}n8n${NC}\n"
-	echo -e "Access your workflow dashboard locally at:"
-	echo -e "   ${GREEN}http://127.0.0.1:5678${NC}"
-	echo -e "${CYAN}────────────────────────────────────────────────────────${NC}"
-else
-	echo -e "\n${RED}[ERROR] n8n installation failed. Please review the output above.${NC}"
+	echo -e "\n${RED}[ERROR] Node-RED installation failed. Please review the output above.${NC}"
 	exit 1
 fi
+echo -e "${GREEN}[OK] Node-RED installed successfully.${NC}\n"
+
+# Installation Complete Summary
+echo -e "${CYAN}╔════════════════════════════════════════════════════════╗${NC}"
+echo -e "${GREEN}║         Node-RED Installation Successful!              ║${NC}"
+echo -e "${CYAN}╚════════════════════════════════════════════════════════╝${NC}"
+echo -e "To start your local instance, run the command:"
+echo -e "   ${CYAN}node-red${NC}\n"
+echo -e "Access your flow editor dashboard locally at:"
+echo -e "   ${GREEN}http://127.0.0.1:1880${NC}"
+echo -e "${CYAN}────────────────────────────────────────────────────────${NC}"
