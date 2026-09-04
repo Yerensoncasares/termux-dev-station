@@ -84,7 +84,7 @@ Así es como luce tu estación de trabajo una vez completado el proceso y aplica
 
 A diferencia de la mayoría de guías limitadas a procesadores Snapdragon (Adreno), esta configuración habilita la **aceleración gráfica por GPU real en procesadores con GPU Mali** (MediaTek, Exynos, etc.) mediante una cadena de traducción nativa. 
 
-El verdadero secreto del rendimiento de Systemic Flow radica en nuestra **arquitectura bajo demanda**: 
+El verdadero secreto del rendimiento de Systemic Flow radica en nuestra **arquitectura bajo demanda**
 1. Renderizamos el entorno de escritorio por software (CPU) para garantizar una estabilidad absoluta, eliminando de raíz las pantallas negras y los cuelgues (errores `BadMatch`).
 2. Delegamos el procesamiento 3D a la GPU de forma aislada **solo** para las aplicaciones que lo exigen (como Godot Engine o Firefox).
 
