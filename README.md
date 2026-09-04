@@ -10,7 +10,7 @@
 ![Vanilla Web](https://img.shields.io/badge/Vanilla_Web-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![Node.js](https://img.shields.io/badge/Node.js-5FA04E?style=for-the-badge&logo=node.js&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![n8n](https://img.shields.io/badge/n8n-FF6D5A?style=for-the-badge&logo=n8n&logoColor=white)
+![Node-RED](https://img.shields.io/badge/Node--RED-8F0000?style=for-for-the-badge&logo=node-red&logoColor=white)
 ![Ollama](https://img.shields.io/badge/Ollama-000000?style=for-the-badge&logo=ollama&logoColor=white)
 ![OpenCode](https://img.shields.io/badge/OpenCode-6C5CE7?style=for-the-badge&logo=terminal&logoColor=white)
 ![OpenRouter](https://img.shields.io/badge/OpenRouter-652B19?style=for-the-badge&logo=openai&logoColor=white)
@@ -54,9 +54,9 @@ Así es como luce tu estación de trabajo una vez completado el proceso y aplica
 | :---: | :---: |
 | ![Godot](./img/godot-project-manager.png) | ![OpenCode](./img/opencode-asistente.png) |
 
-| Automatización con n8n | Navegación Web (Firefox) |
+| Automatización con Node-RED | Navegación Web (Firefox) |
 | :---: | :---: |
-| ![n8n](./img/n8n-dashboard.png) | ![Firefox](./img/firefox-navegacion.png) |
+| ![Node-RED](./img/nodered-dashboard.png) | ![Firefox](./img/firefox-navegacion.png) |
 
 ---
 
@@ -198,17 +198,17 @@ EOF
 source ~/.bashrc
    ```
 
-### Fase 4: Despliegue de n8n y Limpieza Inteligente de Espacio
-Instalamos la automatización de flujos con n8n y limpiamos cachés para recuperar gigabytes de almacenamiento:
+### Fase 4: Despliegue de Node-RED y Limpieza Inteligente de Espacio
+Instalamos la plataforma de automatización liviana basada en eventos (Node-RED) y realizamos una rutina de limpieza profunda para liberar espacio:
 
 ```bash
-curl -o termux-n8n-native.sh 'https://raw.githubusercontent.com/Yerensoncasares/termux-dev-station/main/termux-n8n-native.sh'
-chmod +x termux-n8n-native.sh
-bash termux-n8n-native.sh
+curl -o termux-nodered-native.sh 'https://raw.githubusercontent.com/Yerensoncasares/termux-dev-station/main/termux-nodered-native.sh'
+chmod +x termux-nodered-native.sh
+bash termux-nodered-native.sh
 
 # Rutina de limpieza de almacenamiento
-npm cache clean --force && pip cache purge
-pkg clean && apt autoremove --purge
+npm cache clean --force && pip cache purge 2>/dev/null
+pkg clean && apt autoremove --purge -y
 rm -rf $PREFIX/tmp/*
 ```
 
