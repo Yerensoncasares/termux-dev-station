@@ -38,7 +38,7 @@ He recorrido el camino de probar guías desactualizadas, emuladores pesados y sc
 
 Aquí no hay capas intermedias. Usamos el ecosistema puro de Termux para lograr el rendimiento real del hardware de tu dispositivo. Cada paso está diseñado para que comprendas exactamente qué se está instalando y configurando.
 
-Ya sea que estés maquetando interfaces web con **HTML, CSS y JS**, programando mecánicas en **Godot Engine**, automatizando flujos con **n8n**, o programando con la ayuda de una **IA**, entender tu entorno a nivel nativo te dará el control absoluto, eliminando la latencia y garantizando que tu estación sea ágil y estable.
+Ya sea que estés maquetando interfaces web con **HTML, CSS y JS**, programando mecánicas en **Godot Engine**, automatizando flujos con **Node-Red**, o programando con la ayuda de una **IA**, entender tu entorno a nivel nativo te dará el control absoluto, eliminando la latencia y garantizando que tu estación sea ágil y estable.
 
 ---
 
