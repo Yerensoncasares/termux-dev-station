@@ -69,7 +69,7 @@ Así es como luce tu estación de trabajo una vez completado el proceso y aplica
    * [Fase 1: Preparación del Sistema Base](#fase-1-preparación-del-sistema-base)
    * [Fase 2: Repositorios, Utilidades del Sistema y Capa de Aceleración Gráfica (VirGL)](#fase-2-repositorios-utilidades-del-sistema-y-capa-de-aceleración-gráfica-virgl)
    * [Fase 3: Asistentes de Inteligencia Artificial (Ollama + OpenCode + API Gemini)](#fase-3-asistentes-de-inteligencia-artificial-ollama--opencode--api-gemini)
-   * [Fase 4: Despliegue de n8n y Limpieza Inteligente de Espacio](#fase-4-despliegue-de-n8n-y-limpieza-inteligente-de-espacio)
+   * [Fase 4: Despliegue de Node-RED y Limpieza Inteligente de Espacio](#fase-4-despliegue-de-node-red-y-limpieza-inteligente-de-espacio)
    * [Fase 5: Instalación del Escritorio XFCE, Servidores Gráficos y Herramientas](#fase-5-instalación-del-escritorio-xfce-servidores-gráficos-y-herramientas)
    * [Fase 6: Solución al Bloqueo de Procesos Fantasma (Android 12+)](#fase-6-solución-al-bloqueo-de-procesos-fantasma-android-12)
    * [Fase 7: Configuración de Arranque (`xstartup` para VNC)](#fase-7-configuración-de-arranque-xstartup-para-vnc)
@@ -77,6 +77,7 @@ Así es como luce tu estación de trabajo una vez completado el proceso y aplica
    * [Fase 9: Habilitar Aceleración GPU en Lanzadores (Opcional)](#fase-9-habilitar-aceleración-gpu-en-lanzadores-opcional)
 5. [🕹️ Scripts de Automatización (`up`, `on`, `vnc-on`, `off`)](#️-scripts-de-automatización-up-on-vnc-on-off)
 6. [📜 Licencia](#-licencia)
+   
 ---
    
 ## ⚡ Arquitectura Híbrida de Aceleración (VirGL + Vulkan + ANGLE)
