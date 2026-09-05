@@ -218,7 +218,7 @@ Instalamos el entorno gráfico XFCE4 junto a sus complementos esenciales, los se
 
 ```bash
 # Entorno XFCE ultraligero y administrador de archivos
-pkg install xfce4 xfce4-goodies thunar htop -y 
+pkg install xfce4 xfce4-goodies thunar htop xfce4-places-plugin -y 
 
 # Servidores gráficos y herramientas ADB
 pkg install tigervnc android-tools -y
