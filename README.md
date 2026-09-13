@@ -311,12 +311,8 @@ grep -q 'alias ls="lsd"' ~/.bashrc || echo 'alias ls="lsd"' >> ~/.bashrc
 # 6. Aplicar cambios en la sesión actual
 source ~/.bashrc
 ```
-
-# 5. Aplicar cambios en la sesión actual
-source ~/.bashrc
-```
-
  ---
+
 ### Fase 9: Habilitar Aceleración GPU en Lanzadores (Opcional)
 Nuestra arquitectura renderiza la interfaz por software por defecto para máxima estabilidad, pero puedes habilitar la GPU bajo demanda para aplicaciones pesadas sin necesidad de usar la terminal.
 
