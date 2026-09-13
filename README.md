@@ -228,7 +228,7 @@ pkg install termux-x11-nightly -y  # Servidor X11 nativo de alta fluidez
 pkg install pulseaudio -y
 
 # Aplicaciones de desarrollo nativas
-pkg install python nodejs code-oss -y
+pkg install python nodejs code-oss godot firefox -y
 ```
 
 ### Fase 6: Solución al Bloqueo de Procesos Fantasma (Android 12+)
