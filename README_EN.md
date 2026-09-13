@@ -311,12 +311,8 @@ grep -q 'alias ls="lsd"' ~/.bashrc || echo 'alias ls="lsd"' >> ~/.bashrc
 # 6. Apply changes to current session
 source ~/.bashrc
 ```
-
-# 5. Apply changes to current session
-source ~/.bashrc
-```
-
  ---
+ 
 ### Phase 9: Enable GPU Acceleration in Launchers (Optional)
 Our architecture renders the UI via software by default for maximum stability, but you can enable on-demand GPU for heavy applications without needing the terminal.
 
