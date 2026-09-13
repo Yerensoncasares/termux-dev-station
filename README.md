@@ -300,7 +300,7 @@ unzip -o ~/assets.zip -d ~/
 rm ~/assets.zip
 
 # 4. Instalación automática de lanzadores y configuración de escritorio
-cp -r ~/.icons ~/.themes ~/.fonts ~/
+cp -r ~/assets/.icons ~/assets/.themes ~/assets/.fonts ~/
 fc-cache -fv
 update-desktop-database ~/.local/share/applications/ 2>/dev/null || true
 
