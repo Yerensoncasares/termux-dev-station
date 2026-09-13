@@ -302,7 +302,8 @@ rm ~/assets.zip
 # 4. Instalación automática de lanzadores y configuración de escritorio
 cp -r ~/assets/.icons ~/assets/.themes ~/assets/.fonts ~/
 fc-cache -fv
-update-desktop-database ~/.local/share/applications/ 2>/dev/null || true
+cd assets/
+update-desktop-database $PREFIX/share/applications/ 2>/dev/null || true
 
 # 5. Inyección limpia de alias y Starship en ~/.bashrc
 grep -q 'starship init bash' ~/.bashrc || echo 'eval "$(starship init bash)"' >> ~/.bashrc
