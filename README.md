@@ -390,22 +390,14 @@ pkg install android-tools apksigner -y
 
 # 2. Crear carpetas requeridas por la interfaz de Godot
 mkdir -p ~/android-sdk/platform-tools
-mkdir -p ~/android-sdk/build-tools/34.0.0
-mkdir -p ~/.local/share/godot/keystores
+mkdir -p ~/android-sdk/build-tools/36.0.0
 
 # 3. Enlazar adb a la carpeta platform-tools
 ln -s $(which adb) ~/android-sdk/platform-tools/adb
 
 # 4. Enlazar apksigner a la carpeta build-tools
-ln -s $(which apksigner) ~/android-sdk/build-tools/34.0.0/apksigner
+ln -s $(which apksigner) ~/android-sdk/build-tools/36.0.0/apksigner
 
-# 5. Generar Debug Keystore
-if [ ! -f ~/.local/share/godot/keystores/debug.keystore ]; then
-    keytool -genkey -v -keystore ~/.local/share/godot/keystores/debug.keystore \
-      -storepass android -alias androiddebugkey -keypass android -keyalg RSA \
-      -keysize 2048 -validity 10000 -dname "CN=Android Debug,O=Android,C=US"
-    echo "[✓] Keystore generado correctamente."
-fi
 ```
 
 #### 2. Configurar Rutas en el Editor de Godot
