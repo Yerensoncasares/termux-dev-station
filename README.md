@@ -169,7 +169,7 @@ Utilizamos **[shell-agent](https://github.com/adegard/shell-agent)**, un asisten
 
 3. **Variables Base y GPU en `~/.bashrc`:**
    Asegúrate de mantener tu alias para aceleración por GPU y bienvenida en `~/.bashrc`:
-   ```bash
+```bash
 cat << 'EOF' >> ~/.bashrc
 # Configuración de Idioma / Localización
 export LANG=es_ES.UTF-8
