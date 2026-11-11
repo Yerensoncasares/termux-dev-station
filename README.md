@@ -267,27 +267,50 @@ chmod +x ~/.vnc/xstartup
 ---
 
 ### Fase 8: Personalización Visual, Animaciones y Estética (Systemic Flow)
-Para que el entorno cuente con una interfaz moderna, fuentes nítidas, animaciones suaves y sombras sin penalizar la memoria RAM:
+Para dotar al entorno de una interfaz moderna, fuentes nítidas, animaciones con Picom y la integración completa de las herramientas de desarrollo:
 
-#### 1. Instalación de Temas, Fuentes y Línea de Comandos
+#### 1. Instalación de Temas Base y Terminal
 ```bash
-# 1. Temas base y utilidades
+# 1. Herramientas base y utilidades
 pkg install arc-gtk-theme papirus-icon-theme starship lsd fontconfig-utils -y
 
 # 2. Configuración de terminal (Starship preset Tokyo Night)
 mkdir -p ~/.config
 starship preset tokyo-night -o ~/.config/starship.toml
+```
 
-# 3. Paquete visual Systemic Flow (Iconos, Temas y Fuentes)
-rm -rf ~/.fonts ~/.themes ~/.icons ~/assets.zip
+#### 2. Despliegue de Assets, Configuraciones y Módulos de Usuario
+Descargamos el paquete unificado de Systemic Flow, desplegamos las configuraciones visuales, movemos las carpetas de trabajo a `$HOME` y eliminamos los temporales:
+
+```bash
+# 1. Limpieza preventiva y descarga del paquete de assets
+rm -rf ~/.fonts ~/.themes ~/.icons ~/assets.zip ~/assets
 curl -L -o ~/assets.zip "https://github.com/Yerensoncasares/termux-dev-station/releases/download/V1.0/assets.zip"
 unzip -o ~/assets.zip -d ~/ && rm ~/assets.zip
 
-cp -r ~/assets/.icons ~/assets/.themes ~/assets/.fonts ~/
+# 2. Desplegar temas, iconos y fuentes
+cp -rf ~/assets/.icons ~/assets/.themes ~/assets/.fonts ~/
 fc-cache -fv
-cd assets/ && update-desktop-database $PREFIX/share/applications/ 2>/dev/null || true
 
-# 4. Integración en ~/.bashrc
+# 3. Copiar recursiva y forzadamente las configuraciones (xfce4, gtk-3.0, picom, autostart)
+mkdir -p ~/.config
+cp -rf ~/assets/config/* ~/.config/
+
+# 4. Instalar lanzadores de escritorio
+mkdir -p ~/.local/share/applications
+cp -rf ~/assets/applications/* ~/.local/share/applications/ 2>/dev/null || true
+update-desktop-database ~/.local/share/applications/ 2>/dev/null || true
+
+# 5. Mover los módulos UI (Python y Kiwix) directamente al directorio Home
+cp -rf ~/assets/docs/mi_kiwix_ui ~/assets/docs/mi_ui_python ~/
+
+# 6. Eliminar la carpeta temporal de assets extraídos
+rm -rf ~/assets
+
+# 7. Desactivar compositor de XFCE (para que Picom gestione las animaciones)
+xfconf-query -c xfwm4 -p /general/use_compositing -s false 2>/dev/null || true
+
+# 8. Integración final en ~/.bashrc
 grep -q 'starship init bash' ~/.bashrc || echo 'eval "$(starship init bash)"' >> ~/.bashrc
 grep -q 'alias ls="lsd"' ~/.bashrc || echo 'alias ls="lsd"' >> ~/.bashrc
 source ~/.bashrc
