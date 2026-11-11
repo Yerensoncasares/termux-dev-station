@@ -133,7 +133,7 @@ apt full-upgrade -y
 Añadimos los repositorios comunitarios esenciales (`tur-repo`, `x11-repo`), herramientas de red, utilidades del sistema imprescindibles para gestión de procesos (`procps` para `killall` y `pkill`), decoraciones de terminal (`figlet`, `neofetch`), servidor Kiwix (`kiwix-tools`) y preparamos la capa de aceleración gráfica avanzada para procesadores Mali mediante ANGLE y Vulkan:
 
 ```bash
-pkg install tur-repo x11-repo -y
+pkg install tur-repo x11-repo android-tools -y
 pkg install git unzip wget curl ripgrep procps figlet neofetch kiwix-tools -y
 pkg install virglrenderer virglrenderer-android angle-android vulkan-loader-generic openssl -y
 
