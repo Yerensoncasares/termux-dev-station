@@ -35,7 +35,7 @@ echo -e "${GREEN}[OK] Core packages installed successfully.${NC}\n"
 # 2. Global Node-RED Installation via npm
 echo -e "${YELLOW}[2/2] Installing Node-RED globally via npm...${NC}"
 echo -e "${BLUE}[INFO] This process is fast and lightweight...${NC}"
-npm install -g --unsafe-perm node-red
+npm install -g --omit=optional node-red
 
 if [ $? -ne 0 ]; then
 	echo -e "\n${RED}[ERROR] Node-RED installation failed. Please review the output above.${NC}"
