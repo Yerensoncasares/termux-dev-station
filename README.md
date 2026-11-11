@@ -75,7 +75,7 @@ Así es como luce tu estación de trabajo una vez completado el proceso y aplica
    * [Fase 5: Instalación del Escritorio XFCE, Servidores Gráficos y Herramientas](#fase-5-instalación-del-escritorio-xfce-servidores-gráficos-y-herramientas)
    * [Fase 6: Solución al Bloqueo de Procesos Fantasma (Android 12+)](#fase-6-solución-al-bloqueo-de-procesos-fantasma-android-12)
    * [Fase 7: Configuración de Arranque (`xstartup` para VNC)](#fase-7-configuración-de-arranque-xstartup-para-vnc)
-   * [Fase 8: Personalización Visual y Estética (Systemic Flow)](#fase-8-personalización-visual-y-estética-systemic-flow)
+   * [Fase 8: Personalización Visual, Animaciones y Estética (Systemic Flow)](#fase-8-personalización-visual-animaciones-y-estética-systemic-flow)
    * [Fase 9: Habilitar Aceleración GPU en Lanzadores (Opcional)](#fase-9-habilitar-aceleración-gpu-en-lanzadores-opcional)
    * [Fase 10: Suite Godot 4 + Estructura Android SDK Nativa](#fase-10-suite-godot-4--estructura-android-sdk-nativa)
    * [Fase 11: Centro de Documentación Offline (Kiwix)](#fase-11-centro-de-documentación-offline-kiwix)
