@@ -285,7 +285,7 @@ Descargamos el paquete oficial de Systemic Flow v1.0.2, desplegamos las configur
 ```bash
 # 1. Limpieza preventiva y descarga del paquete v1.0.2
 rm -rf ~/.fonts ~/.themes ~/.icons ~/assets.zip.001 ~/assets
-curl -L -o ~/assets.zip.001 "https://github.com/Yerensoncasares/termux-dev-station/releases/download/v1.0.2/assets.zip.001"
+curl -L -o ~/assets.zip.001 "https://github.com/Yerensoncasares/termux-dev-station/releases/download/V1.0.2/assets.zip.001"
 
 # 2. Extraer paquete en el directorio raíz (genera automáticamente ~/assets/)
 unzip -qo ~/assets.zip.001 -d ~/ && rm ~/assets.zip.001
