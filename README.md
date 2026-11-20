@@ -294,10 +294,9 @@ unzip -qo ~/assets.zip.001 -d ~/ && rm ~/assets.zip.001
 cp -rf ~/assets/.icons ~/assets/.themes ~/assets/.fonts ~/
 fc-cache -fv
 
-# 4. Desplegar iconos de aplicaciones e iconos personalizados
+# 4. Desplegar iconos personalizados de las aplicaciones 
 mkdir -p ~/.local/share/icons
 cp -rf ~/assets/icons/* ~/.local/share/icons/ 2>/dev/null || true
-cp -rf ~/assets/.icons/* ~/.local/share/icons/ 2>/dev/null || true
 
 # 5. Copiar configuraciones completas (xfce4, gtk-3.0, picom y autostart)
 mkdir -p ~/.config
@@ -387,8 +386,28 @@ Para lograr independencia total de internet y evitar distracciones o informació
 
 ---
 
-#### 📦 Reconstrucción y Extracción de Paquetes Offline
-Una vez descargadas las partes en tu carpeta de `Descargas` de Android, únelas y extráelas en un solo paso mediante `cat`:
+#### 📥 1. Descarga Directa por Terminal (Opcional)
+Puedes descargar todas las partes divididas directamente a tu carpeta de descargas sin abrir el navegador:
+
+```bash
+cd ~/storage/downloads
+BASE_URL="https://github.com/Yerensoncasares/termux-dev-station/releases/download/V1.0.2"
+
+# Descargar las 3 partes de Python / Web Docs
+for p in 001 002 003; do
+  wget -c --show-progress "$BASE_URL/python.zip.$p"
+done
+
+# Descargar las 8 partes de Kiwix
+for k in 001 002 003 004 005 006 007 008; do
+  wget -c --show-progress "$BASE_URL/kiwix.zip.$k"
+done
+```
+
+---
+
+#### 📦 2. Reconstrucción y Extracción de Paquetes
+Una vez descargadas las partes, únelas y extráelas en un solo paso mediante `cat`:
 
 ```bash
 cd ~/storage/downloads
