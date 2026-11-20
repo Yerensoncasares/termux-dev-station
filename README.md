@@ -78,7 +78,7 @@ Así es como luce tu estación de trabajo una vez completado el proceso y aplica
    * [Fase 8: Personalización Visual, Animaciones y Estética (Systemic Flow)](#fase-8-personalización-visual-animaciones-y-estética-systemic-flow)
    * [Fase 9: Habilitar Aceleración GPU en Lanzadores (Opcional)](#fase-9-habilitar-aceleración-gpu-en-lanzadores-opcional)
    * [Fase 10: Suite Godot 4 + Estructura Android SDK Nativa](#fase-10-suite-godot-4--estructura-android-sdk-nativa)
-   * [Fase 11: Centro de Documentación Offline (Kiwix)](#fase-11-centro-de-documentación-offline-kiwix)
+   * [Fase 11: Centro de Documentación Offline (Kiwix y Web Docs)](#fase-11-centro-de-documentación-offline-kiwix-y-web-docs)
 5. [🕹️ Scripts de Automatización del Sistema](#️-scripts-de-automatización-del-sistema)
 6. [📜 Licencia](#-licencia)
    
@@ -267,7 +267,7 @@ chmod +x ~/.vnc/xstartup
 ---
 
 ### Fase 8: Personalización Visual, Animaciones y Estética (Systemic Flow)
-Para dotar al entorno de una interfaz moderna, fuentes nítidas, animaciones con Picom y la integración completa de las herramientas de desarrollo:
+Para dotar al entorno de una interfaz moderna, fuentes nítidas, animaciones fluidas con Picom y el despliegue automático de toda la suite de desarrollo con iconos personalizados:
 
 #### 1. Instalación de Temas Base y Terminal
 ```bash
@@ -279,104 +279,48 @@ mkdir -p ~/.config
 starship preset tokyo-night -o ~/.config/starship.toml
 ```
 
-#### 2. Despliegue de Assets, Configuraciones y Módulos de Usuario
-Descargamos el paquete unificado de Systemic Flow, desplegamos las configuraciones visuales, movemos las carpetas de trabajo a `$HOME` y eliminamos los temporales:
+#### 2. Despliegue de Assets v1.0.2 (Temas, Iconos, Configuraciones y Suite de Apps)
+Descargamos el paquete oficial de Systemic Flow v1.0.2, desplegamos las configuraciones visuales completas (paneles XFCE, Picom, GTK, iconos personalizados y la suite de lanzadores) y eliminamos los temporales:
 
 ```bash
-# 1. Limpieza preventiva y descarga del paquete de assets
-rm -rf ~/.fonts ~/.themes ~/.icons ~/assets.zip ~/assets
-curl -L -o ~/assets.zip "https://github.com/Yerensoncasares/termux-dev-station/releases/download/V1.0/assets.zip"
-unzip -o ~/assets.zip -d ~/ && rm ~/assets.zip
+# 1. Limpieza preventiva y descarga del paquete v1.0.2
+rm -rf ~/.fonts ~/.themes ~/.icons ~/assets.zip.001 ~/assets
+curl -L -o ~/assets.zip.001 "https://github.com/Yerensoncasares/termux-dev-station/releases/download/v1.0.2/assets.zip.001"
 
-# 2. Desplegar temas, iconos y fuentes
+# 2. Extraer paquete en el directorio raíz (genera automáticamente ~/assets/)
+unzip -qo ~/assets.zip.001 -d ~/ && rm ~/assets.zip.001
+
+# 3. Desplegar temas, fuentes e iconos base
 cp -rf ~/assets/.icons ~/assets/.themes ~/assets/.fonts ~/
 fc-cache -fv
 
-# 3. Copiar recursiva y forzadamente las configuraciones (xfce4, gtk-3.0, picom, autostart)
+# 4. Desplegar iconos de aplicaciones e iconos personalizados
+mkdir -p ~/.local/share/icons
+cp -rf ~/assets/icons/* ~/.local/share/icons/ 2>/dev/null || true
+cp -rf ~/assets/.icons/* ~/.local/share/icons/ 2>/dev/null || true
+
+# 5. Copiar configuraciones completas (xfce4, gtk-3.0, picom y autostart)
 mkdir -p ~/.config
 cp -rf ~/assets/config/* ~/.config/
 
-# 4. Instalar lanzadores de escritorio
+# 6. Instalar lanzadores con iconos personalizados (Blockbench, DevDocs, Kiwix, Python Docs, etc.)
 mkdir -p ~/.local/share/applications
 cp -rf ~/assets/applications/* ~/.local/share/applications/ 2>/dev/null || true
 update-desktop-database ~/.local/share/applications/ 2>/dev/null || true
 
-# 5. Mover los módulos UI (Python y Kiwix) directamente al directorio Home
+# 7. Mover módulos de servidor e interfaz (Python UI y Kiwix UI) a $HOME
 cp -rf ~/assets/docs/mi_kiwix_ui ~/assets/docs/mi_ui_python ~/
 
-# 6. Eliminar la carpeta temporal de assets extraídos
+# 8. Eliminar carpeta temporal extraída
 rm -rf ~/assets
 
-# 7. Desactivar compositor de XFCE (para que Picom gestione las animaciones)
+# 9. Desactivar compositor de XFCE (para que Picom gestione las animaciones)
 xfconf-query -c xfwm4 -p /general/use_compositing -s false 2>/dev/null || true
 
-# 8. Integración final en ~/.bashrc
+# 10. Integración final en ~/.bashrc
 grep -q 'starship init bash' ~/.bashrc || echo 'eval "$(starship init bash)"' >> ~/.bashrc
 grep -q 'alias ls="lsd"' ~/.bashrc || echo 'alias ls="lsd"' >> ~/.bashrc
 source ~/.bashrc
-```
-
-#### 2. Animaciones y Transiciones Fluidas (Picom)
-Configuramos Picom con curvas de desvanecimiento (*fading*) optimizadas para pantallas móviles (60-120 Hz), desactivando el compositor nativo de XFCE para evitar conflictos:
-
-```bash
-# 1. Desactivar compositor nativo de XFCE
-xfconf-query -c xfwm4 -p /general/use_compositing -s false 2>/dev/null || true
-
-# 2. Configurar perfil de animaciones y sombras
-mkdir -p ~/.config/picom
-cat << 'EOF' > ~/.config/picom/picom.conf
-backend = "xrender";
-vsync = false;
-use-damage = true;
-
-# Animaciones de apertura/cierre suaves
-fading = true;
-fade-in-step = 0.05;
-fade-out-step = 0.05;
-fade-delta = 8;
-no-fading-openclose = false;
-
-# Sombras suaves Tokyo Night
-shadow = true;
-shadow-radius = 12;
-shadow-opacity = 0.45;
-shadow-offset-x = -10;
-shadow-offset-y = -10;
-shadow-exclude = [
-  "name = 'Notification'",
-  "class_g = 'Conky'",
-  "class_g ?= 'Notify-osd'",
-  "_GTK_FRAME_EXTENTS@:c"
-];
-
-inactive-opacity = 0.96;
-active-opacity = 1.0;
-frame-opacity = 1.0;
-
-wintypes:
-{
-  tooltip = { fade = true; shadow = true; opacity = 0.95; focus = true; };
-  dock = { shadow = false; clip-shadow-above = true; };
-  dnd = { shadow = false; };
-  popup_menu = { opacity = 0.96; fade = true; shadow = true; };
-  dropdown_menu = { opacity = 0.96; fade = true; shadow = true; };
-};
-EOF
-
-# 3. Configurar inicio automático al abrir XFCE
-mkdir -p ~/.config/autostart
-cat << 'EOF' > ~/.config/autostart/picom.desktop
-[Desktop Entry]
-Type=Application
-Name=Picom Compositor
-Comment=Animaciones y sombras fluidas
-Exec=picom -b --config /data/data/com.termux/files/home/.config/picom/picom.conf
-Hidden=false
-NoDisplay=false
-X-GNOME-Autostart-enabled=true
-EOF
-chmod +x ~/.config/autostart/picom.desktop
 ```
 
 ---
@@ -434,12 +378,41 @@ Abre Godot (`gpu godot`), ve a **Editor > Configuración del Editor > Exportar >
 
 ---
 
-### Fase 11: Centro de Documentación Offline (Kiwix)
+### Fase 11: Centro de Documentación Offline (Kiwix y Web Docs)
 
-Permite consultar documentación técnica completa (Python, JavaScript, Godot, Linux o Wikipedia) sin consumir datos ni depender de conexión a internet.
+Para lograr independencia total de internet y evitar distracciones o información no verificada en la web abierta, la estación integra dos motores de documentación local alojados en las [Releases del repositorio](https://github.com/Yerensoncasares/termux-dev-station/releases):
 
-1. Guarda tus archivos `.zim` en tu carpeta interna de Android en `Descargas/kiwix/` (ej: desde [library.kiwix.org](https://library.kiwix.org/)).
-2. El script `Kw` indexará automáticamente las bibliotecas y levantará el servidor local en segundo plano.
+1. **Biblioteca Kiwix (`kiwix.zip.*`):** Paquete de 8 partes con archivos `.zim` que contienen la **ArchWiki** completa, documentación de Termux, cursos de FreeCodeCamp, Bootstrap y libros universitarios de LibreTexts (matemáticas e ingeniería).
+2. **Suite Web y Libros (`python.zip.*`):** Paquete de 3 partes con sitios web completos preparados para navegación local: la biblia web de **MDN**, documentación oficial de **Godot**, tutoriales interactivos de **learn-gdscript** y la biblioteca de **librosgratis.dev**.
+
+---
+
+#### 📦 Reconstrucción y Extracción de Paquetes Offline
+Una vez descargadas las partes en tu carpeta de `Descargas` de Android, únelas y extráelas en un solo paso mediante `cat`:
+
+```bash
+cd ~/storage/downloads
+
+# 1. Unir y extraer la Biblioteca Kiwix (8 partes -> Descargas/kiwix/)
+cat kiwix.zip.* > kiwix_temp.zip
+unzip -qo kiwix_temp.zip -d ~/storage/downloads/
+rm kiwix_temp.zip
+
+# 2. Unir y extraer la Suite Web / Libros (3 partes -> Descargas/python/)
+cat python.zip.* > python_temp.zip
+unzip -qo python_temp.zip -d ~/storage/downloads/
+rm python_temp.zip
+```
+
+> **Nota:** No es necesario crear subcarpetas manualmente; cada archivo comprimido genera automáticamente sus directorios raíz (`kiwix/` y `python/`). Si deseas ahorrar espacio, puedes eliminar los archivos divididos `.zip.001`, `.zip.002`, etc., una vez extraídos.
+
+---
+
+#### 🚀 Acceso a las Bibliotecas
+* **Desde el Escritorio XFCE:** Puedes abrir cualquiera de las dos suites directamente desde el Menú Whisker con un solo clic gracias a los lanzadores con iconos personalizados (**Kiwix Docs Offline** y **Web & Godot Docs Offline**). El servidor correspondiente se levantará en segundo plano y abrirá Firefox automáticamente.
+* **Desde la Terminal:** 
+  * Para Kiwix: ejecuta `Kw` (disponible en `http://localhost:8080`).
+  * Para la Suite Web: ejecuta `Py` (disponible en `http://localhost:8081`).
 
 ---
 
@@ -601,16 +574,21 @@ pkill -9 -f termux-x11 2>/dev/null
 vgl q 2>/dev/null
 pkill -9 -f virgl 2>/dev/null
 
-# 3. Detener demonios de soporte
+# 3. Detener demonios de soporte y servidores locales de documentación
 killall -9 dbus-daemon 2>/dev/null
 pulseaudio --kill 2>/dev/null
-pkill -f "kiwix-serve" 2>/dev/null
+pkill -9 -f "kiwix-serve" 2>/dev/null
+pkill -9 -f "mi_ui_python/server.py" 2>/dev/null
 
-# 4. Limpieza profunda de temporales y memoria acumulada
+# 4. Liberar puertos de red por seguridad
+fuser -k 8080/tcp 2>/dev/null
+fuser -k 8000/tcp 2>/dev/null
+
+# 5. Limpieza profunda de temporales y memoria acumulada
 rm -rf "$TMPDIR"/.X11-unix/X* "$TMPDIR"/dbus-* "$TMPDIR"/pulse-* 
 rm -rf "$HOME"/.vnc/*.pid "$HOME"/.vnc/*.log "$HOME"/.cache/sessions/*
 
-echo "[✓] Todo apagado y limpio. Memoria liberada."
+echo "[✓] Todo apagado y limpio. Memoria RAM liberada."
 EOF
 chmod +x $PREFIX/bin/off
 ```
