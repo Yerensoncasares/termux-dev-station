@@ -493,6 +493,11 @@ rm kiwix_temp.zip
 cat python.zip.* > python_temp.zip
 unzip -qo python_temp.zip -d ~/storage/downloads/
 rm python_temp.zip
+
+# 3. Join and extract Web Suite / Books (3 parts -> Downloads/repos/)
+cat repos.zip.* > repos_temp.zip
+unzip -qo repos_temp.zip -d ~/storage/downloads/
+rm repos_temp.zip
 ```
 
 > **Note:** Do not create nested directories manually; the zip files automatically unpack into `kiwix/` and `python/`. You may safely delete `.zip.001`, `.zip.002`, etc., once extracted to save storage.
