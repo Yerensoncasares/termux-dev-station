@@ -336,17 +336,13 @@ update-desktop-database ~/.local/share/applications/ 2>/dev/null || true
 # 7. Move documentation and server modules (Python UI & Kiwix UI) to $HOME
 cp -rf ~/assets/docs/mi_kiwix_ui ~/assets/docs/mi_ui_python ~/
 
-# 8. Deploy local offline repositories for RepoView
-mkdir -p ~/storage/downloads/repos
-cp -rf ~/assets/repos/* ~/storage/downloads/repos/ 2>/dev/null || true
-
-# 9. Clean temporary extraction directory
+# 8. Clean temporary extraction directory
 rm -rf ~/assets
 
-# 10. Disable native XFCE compositor so Picom manages compositing
+# 9. Disable native XFCE compositor so Picom manages compositing
 xfconf-query -c xfwm4 -p /general/use_compositing -s false 2>/dev/null || true
 
-# 11. Bashrc integration
+# 10. Bashrc integration
 source ~/.bashrc
 ```
 
@@ -467,6 +463,11 @@ BASE_URL="https://github.com/Yerensoncasares/termux-dev-station/releases/downloa
 # Download 3 parts of Python / Web Docs
 for p in 001 002 003; do
   wget -c --show-progress "$BASE_URL/python.zip.$p"
+done
+
+# Download 5 parts of repos / Github Docs
+for r in 001 002 003 004 005; do
+  wget -c --show-progress "$BASE_URL/repos.zip.$r"
 done
 
 # Download 8 parts of Kiwix
